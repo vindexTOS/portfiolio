@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  user-select: none;
+}
+
 .bg-img {
   background-image: linear-gradient(
       to bottom,
