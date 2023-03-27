@@ -1,7 +1,13 @@
 import React from 'react'
-
+import About from './About'
+import Projects from './Projects'
 const Home = () => {
-  return <div></div>
+  return (
+    <div>
+      <About />
+      <Projects />
+    </div>
+  )
 }
 
 export default Home
