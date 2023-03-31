@@ -4,7 +4,7 @@ import ProjectCard from './ProjectCard'
 const Projects = () => {
   const { Project } = UsePortfolioContext()
   const style = {
-    mainDiv: `w-[100%] h-[900px] bg-[#24273d] flex flew-wrap items-center justify-center`,
+    mainDiv: `w-[100%] h-[100%] py-20 bg-[#24273d] flex flex-wrap  gap-4  items-center justify-center`,
   }
   return (
     <section className={style.mainDiv} id="project-section">

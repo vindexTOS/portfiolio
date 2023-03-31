@@ -32,21 +32,21 @@ const ProjectCard: FC<ProjectCardProps> = ({
   const [zoom, setZoom] = React.useState<boolean>(false)
 
   const style = {
-    mainDiv: `w-[400px] h-[600px] border-2 border-white  bg-gray-800 p-5 flex flex-col items-center `,
-    img: `z-20 outline outline-2 outline-blue-200  ${
+    mainDiv: `w-[400px] h-[600px] border-2 border-white  bg-gray-800 p-5 flex flex-col  items-center `,
+    img: `   ${
       zoom
-        ? 'w-[700px] h-[500px] max_md:w-[500px] max_md:h-[400px] max_smm1:w-[350px] max_smm1:h-[300px]   absolute  outline-0'
-        : ' '
+        ? 'w-[700px] h-[470px] max_md:w-[500px] max_md:h-[400px] max_smm1:w-[350px] max_smm1:h-[300px] z-20   absolute outline-none outline-0'
+        : ' outline outline-2 outline-blue-200 '
     }`,
     linkDiV: `w-[100%] flex gap-5 pb-2`,
     innerLinks: ` flex items-center justify-starts gap-2 text-[14px]`,
     links: ` underline text-blue-500 hover:text-blue-600`,
-    iconDiv: `flex p-2 w-[100%] text-[2rem] `,
-    imgDiv: `pb-2  ${zoom ? '' : 'relative '}`,
+    iconDiv: `flex p-2 w-[100%] text-[2rem] gap-5`,
+    imgDiv: `pb-2 h-[200px]  ${zoom ? '' : 'relative '}`,
     arrowDiv: ` ${
       zoom
-        ? 'text-[3rem] w-[700px]  max_md:w-[500px] max_smm1:w-[350px] px-5 rounded-t-[20px] py-1 bg-gray-700   flex justify-between items-center'
-        : 'absolute flex w-[100%] justify-between px-2 text-[2rem] items-center h-[100%]'
+        ? 'text-[3rem] w-[700px]  zindex max_md:w-[500px] max_smm1:w-[350px] px-5 rounded-t-[20px] py-1 bg-gray-700 z-100 sticky  flex justify-between items-center'
+        : 'absolute flex w-[100%] justify-between px-2  text-[2rem] items-center h-[100%]'
     }`,
     arrowIcon: `text-gray-300 hover:text-gray-400  cursor-pointer`,
   }
@@ -80,7 +80,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
         } else {
           setImgIndex(imgIndex + 1)
         }
-      }, 3000)
+      }, 5000)
 
       return () => clearInterval(time)
     }
@@ -94,7 +94,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
           <p>{val}</p>
         ))}
       </div>
-      <div className={style.imgDiv}>
+      <div className="relative">
         <div className={style.arrowDiv}>
           <BsArrowLeftCircle
             onClick={() => ArrowMovment('left')}
@@ -105,31 +105,28 @@ const ProjectCard: FC<ProjectCardProps> = ({
             className={style.arrowIcon}
           />
         </div>
-        {zoom ? (
-          <AiOutlineZoomOut
-            className=" absolute  text-[2rem] top-[78rem] max_xml:top-[102rem] z-30 text-blue-400 cursor-pointer"
-            onClick={() => setZoom(!zoom)}
-          />
-        ) : (
-          <AiOutlineZoomIn
-            onClick={() => setZoom(!zoom)}
-            className="absolute text-[2rem] text-blue-400 cursor-pointer"
-          />
-        )}
-        <img className={style.img} src={imgs[imgIndex]} />
+        <div className={style.imgDiv} onClick={() => setZoom(!zoom)}>
+          {!zoom && (
+            <AiOutlineZoomIn
+              onClick={() => setZoom(!zoom)}
+              className="absolute text-[2rem] text-blue-400 cursor-pointer"
+            />
+          )}
+          <img className={style.img} src={imgs[imgIndex]} />
 
-        <div
-          className={` flex w-[100%] absolute items-center justify-center gap-5 bottom-5 ${
-            zoom && 'hidden'
-          } `}
-        >
-          {imgs.map((val: any, index: number) => (
-            <div
-              className={`w-[10px] h-[10px] rounded-[50%]   ${
-                index === imgIndex ? 'bg-yellow-300' : 'bg-blue-300'
-              }`}
-            ></div>
-          ))}
+          <div
+            className={` flex w-[100%] absolute items-center justify-center gap-5 bottom-5 ${
+              zoom && 'hidden'
+            } `}
+          >
+            {imgs.map((val: any, index: number) => (
+              <div
+                className={`w-[10px] h-[10px] rounded-[50%]   ${
+                  index === imgIndex ? 'bg-yellow-300' : 'bg-blue-300'
+                }`}
+              ></div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -159,7 +156,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
           className="text-blue-400 underline cursor-pointer"
           onClick={() => setReadMore(!readMore)}
         >
-          {!readMore ? ` Read More` : ' Read Less'}
+          {dec.length > 550 && <> {!readMore ? ` Read More` : ' Read Less'}</>}
         </span>
       </p>
     </div>

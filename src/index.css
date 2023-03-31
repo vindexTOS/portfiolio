@@ -19,3 +19,7 @@
   background-repeat: no-repeat;
   background-position: center bottom;
 }
+
+.zindex {
+  z-index: 100000;
+}
