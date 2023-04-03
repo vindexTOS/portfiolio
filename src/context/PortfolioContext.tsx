@@ -30,6 +30,35 @@ type Cell = {
   navRelocation: boolean
 }
 
+export const portfolioData = {
+  aboutMe: `  My full name is Giorgi Kutateladze, and
+  I am a self-taught React developer. As a passionate learner and
+  problem solver, I taught myself how to code and have been developing
+  web applications using React ever since. I have a strong
+  understanding of the React ecosystem and enjoy creating responsive
+  and user-friendly interfaces. I believe that my dedication to
+  learning and my ability to think critically allow me to tackle
+  complex problems. On this website, you will find examples of my
+  work, including some of the projects I have developed using React. I
+  am constantly learning and expanding my skillset, and I am excited
+  about the opportunity to collaborate with other developers and
+  businesses. Thank you for taking the time to visit my portfolio
+  website, and I look forward to the opportunity to work with you!`,
+  InreleventInfo: [
+    { point: `I Have A Bachelor in Agricultural Science` },
+    { point: `I Am Welder As A Trade ` },
+    {
+      point: `My Name Is Giorgi And I Believe In Fitness...`,
+    },
+    {
+      point: ` Weight Lifting Is One Of The Most I Important Passions In My Life`,
+    },
+    {
+      point: `I Have Some Bit Of Knowledge In Video Editing And Photoshop`,
+    },
+  ],
+}
+
 const PortfolioContext = createContext<Cell | null>(null)
 
 export const PortfolioContextProvider = ({
@@ -162,6 +191,9 @@ export const PortfolioContextProvider = ({
     setNavRelocation(!navRelocation)
     navigate('/')
   }
+
+  // data for about
+
   return (
     <PortfolioContext.Provider
       value={{

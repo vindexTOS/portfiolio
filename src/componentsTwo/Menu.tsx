@@ -4,7 +4,7 @@ import { UsePortfolioContext } from '../context/PortfolioContext'
 const Menu = () => {
   const { dropOutMenu } = UsePortfolioContext()
   const style = {
-    section: ` bg-[#245a50]  w-[350px] h-[350px] ml-1 boxShaddow bottom-20 left-0  absolute`,
+    section: ` bg-[#245a50]  w-[350px] h-[350px] ml-1 boxShaddow bottom-20 left-0  absolute z-10`,
   }
   return (
     <m.section
