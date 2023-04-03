@@ -35,3 +35,9 @@
   -webkit-box-shadow: 0px 0px 9px 2px rgb(236, 116, 65);
   -moz-box-shadow: 0px 0px 9px 2px rgb(236, 116, 65);
 }
+
+.cardBoxOn {
+  box-shadow: 0px 0px 11px 5px rgb(236, 116, 65);
+  -webkit-box-shadow: 0px 0px 11px 5px rgb(236, 116, 65);
+  -moz-box-shadow: 0px 0px 11px 5px rgb(236, 116, 65);
+}

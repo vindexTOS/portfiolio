@@ -30,9 +30,13 @@ const AboutMe = () => {
       link: `https://www.youtube.com/@VindexTOS/featured`,
     },
   ]
+  const [zoom, setZoom] = React.useState<boolean>(false)
+
   const { CloseWindow } = UsePortfolioContext()
   const style = {
-    mainDiv: `w-[70%] h-[80%] max_lg:w-[100%] max_lg:h-[100%] flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `,
+    mainDiv: `${
+      zoom ? 'w-[100%] h-[100%] mt-[4rem]' : 'w-[70%] h-[80%] '
+    } max_lg:w-[100%] max_lg:h-[100%] flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `,
     topDiv: `w-[100%]  flex items-center justify-between px-5 h-[50px]  bg-gray-800`,
     section: `bg-gray-100 w-[100%] h-[100%]   `,
     mainContent: ` flex w-[100%] h-[93%] p-2 gap-5 justify-between overflow-y-scroll  max_md:flex-col `,
@@ -61,6 +65,7 @@ const AboutMe = () => {
       setCopy('')
     }, 2000)
   }
+
   return (
     <div className={style.mainDiv}>
       <m.section
@@ -73,7 +78,11 @@ const AboutMe = () => {
           <h1 className={style.header}>About Me</h1>
           <div className={style.btnDiv}>
             <button className={style.iconZoom}>
-              <MdZoomOutMap />
+              {zoom ? (
+                <MdZoomInMap onClick={() => setZoom(!zoom)} />
+              ) : (
+                <MdZoomOutMap onClick={() => setZoom(!zoom)} />
+              )}
             </button>
             <button onClick={CloseWindow}>
               <p className={style.icon}>X</p>
@@ -98,7 +107,7 @@ const AboutMe = () => {
                   <m.span
                     initial={{ opacity: 0 }}
                     animate={{ opacity: copy !== '' ? 1 : 0 }}
-                    transition={{ duration: 0.4 }}
+                    transition={{ duration: 0.2 }}
                     className={style.copySpan}
                   >
                     {copy}
@@ -108,7 +117,11 @@ const AboutMe = () => {
               {InfoData.map((val: any) => (
                 <div className={style.infoBtn}>
                   {val.icon}
-                  <Link to={val.link} className="text-[1.2rem] ">
+                  <Link
+                    target="_blank"
+                    to={val.link}
+                    className="text-[1.2rem] "
+                  >
                     {val.title}
                   </Link>
                 </div>

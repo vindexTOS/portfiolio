@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { motion as m } from 'framer-motion'
 import me from '../assets/me.jpg'
 import { UsePortfolioContext } from '../context/PortfolioContext'
+import { useLocation } from 'react-router-dom'
 type NavCardProsp = {
   img: string
   title: string
@@ -10,13 +11,16 @@ type NavCardProsp = {
 }
 const NavCards: FC<NavCardProsp> = ({ img, title, styling, link }) => {
   const { Navigate, navRelocation } = UsePortfolioContext()
+  const location = useLocation()
   const style = {
     mainDiv: `   ${
       navRelocation
-        ? 'w-[370px] h-[320px] max_md:h-[220px] max_md:w-[320px] flex items-center justify-center'
+        ? 'w-[370px] h-[320px] max_md:h-[220px] max_md:w-[320px] flex items-center justify-center relative'
         : ''
     }    `,
-    content: ` gap-2 items-center justify-center  flex flex-col  bg-[#245a50] cardBoxShaddow  cursor-pointer hover:cardBoxHover  ${
+    content: ` gap-2 items-center justify-center  flex flex-col  bg-[#245a50]  cursor-pointer   ${
+      location.pathname === `/${link}` ? 'cardBoxOn' : 'cardBoxShaddow '
+    }  ${
       navRelocation
         ? 'w-[340px] h-[300px]   max_md:h-[200px] max_md:w-[300px] '
         : 'w-[120px] h-[120px]'
@@ -26,6 +30,7 @@ const NavCards: FC<NavCardProsp> = ({ img, title, styling, link }) => {
       navRelocation ? 'text-[1.5rem] w-[9rem]' : ''
     }`,
   }
+
   return (
     <div onClick={() => Navigate(link)} className={style.mainDiv}>
       <m.div

@@ -188,7 +188,7 @@ export const PortfolioContextProvider = ({
   }
   // to close the window
   const CloseWindow = () => {
-    setNavRelocation(!navRelocation)
+    setNavRelocation(true)
     navigate('/')
   }
 
