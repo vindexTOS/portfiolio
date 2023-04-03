@@ -1,13 +1,15 @@
 import React from 'react'
 import MyPhoto from '../assets/me.jpg'
+import { UsePortfolioContext } from '../context/PortfolioContext'
 const About = () => {
+  const { aboutRef } = UsePortfolioContext()
   const style = {
     mainDiv: ` flex items-center justify-center bg-[#1e2233] w-[100%] h-[500px]  max_xml:h-[900px] `,
     aboutMe: `w-[70%]  max_xml:w-[90%] border-2 border-gray-800 flex items-center justify-center  max_md:flex-col  gap-5 p-5`,
     img: ` w-[300px] border-gray-800 border-4 `,
   }
   return (
-    <div className={style.mainDiv}>
+    <div ref={aboutRef} className={style.mainDiv}>
       <div className={style.aboutMe}>
         <img className={style.img} src={MyPhoto} />
         <div className="flex flex-col gap-4">

@@ -3,7 +3,9 @@ import navBack from '../assets/navBack.jpg'
 import { Link } from 'react-router-dom'
 import Me from '../assets/me.jpg'
 import { VscThreeBars } from 'react-icons/vsc'
+import { UsePortfolioContext } from '../context/PortfolioContext'
 const NavBar = () => {
+  const { navRef } = UsePortfolioContext()
   const style = {
     mainNav: `w-[100%] h-[400px] bg-img  `,
     nav: `w-[100%] h-[100px] bg-none text-white font-bold flex gap-5  items-center justify-between  px-10 z-20`,
@@ -16,8 +18,8 @@ const NavBar = () => {
   const [dropDown, setDropDown] = React.useState<boolean>(false)
 
   const links = [
-    { title: `About`, link: `#about-section` },
-    { title: `Projects`, link: `#project-section` },
+    { title: `About`, link: 'about' },
+    { title: `Projects`, link: 'project' },
     { title: `Skills`, link: `#skill-section` },
   ]
 
@@ -33,7 +35,7 @@ const NavBar = () => {
         <div className={style.linkDiv}>
           {links.map((val: any) => {
             return (
-              <a className={style.link} href={val.link}>
+              <a onClick={() => navRef(val.link)} className={style.link}>
                 {val.title}
               </a>
             )

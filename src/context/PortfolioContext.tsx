@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useRef, useState } from 'react'
 import { imgdata } from '../assets/imgdata'
 import { FaReact } from 'react-icons/fa'
 import { SiFirebase } from 'react-icons/si'
@@ -16,8 +16,14 @@ type ProjectItemType = {
   imgs: string[]
   icons: IconBaseProps[]
 }
+
 type Cell = {
   Project: ProjectItemType[]
+  projectRef: React.MutableRefObject<null>
+  aboutRef: React.MutableRefObject<null>
+  navRef: (link: string) => void
+  dropOutMenu: boolean
+  setDropOutMenu: React.Dispatch<boolean>
 }
 
 const PortfolioContext = createContext<Cell | null>(null)
@@ -104,8 +110,7 @@ export const PortfolioContextProvider = ({
     },
     {
       title: 'DogGPT',
-      dec:
-        'ChatGPT has competitor and i build it... all jokes aside this project was inspired by other developers project named CatGPT ,the fact is that i am a dog person so i made it about dogs because im a dog person, it is a simple chat simultor that calls random facts from dog facts API every time user types anything , it took me less than a houre to make it and then on and off polished it and fixed some bugs ',
+      dec: `ChatGPT has competitor and i build it... all jokes aside this project was inspired by other developer's project  CatGPT , i made it about dogs  instad of cats because im a dog person, it's a simple chat simultor that calls random facts from dog facts API every time user types anything , it took me less than a houre to make it  `,
       link: 'https://glistening-cucurucho-296957.netlify.app/',
       git: 'https://github.com/vindexTOS/dogGPT',
       demovideo: 'https://www.youtube.com/watch?v=VBcYNsM5qwA&feature=youtu.be',
@@ -118,9 +123,37 @@ export const PortfolioContextProvider = ({
       ],
     },
   ]
+  const aboutRef = useRef(null)
+  const projectRef = useRef(null)
 
+  const navRef = (link: string) => {
+    if (link === 'about') {
+      const element = (aboutRef.current as unknown) as HTMLDivElement
+      element?.scrollIntoView({
+        behavior: 'smooth',
+      })
+    } else if (link === 'project') {
+      const element = (projectRef.current as unknown) as HTMLDivElement
+      element?.scrollIntoView({
+        behavior: 'smooth',
+      })
+    }
+  }
+
+  /// sec attempt of portfolio logic
+
+  const [dropOutMenu, setDropOutMenu] = useState<boolean>(false)
   return (
-    <PortfolioContext.Provider value={{ Project }}>
+    <PortfolioContext.Provider
+      value={{
+        Project,
+        projectRef,
+        aboutRef,
+        navRef,
+        dropOutMenu,
+        setDropOutMenu,
+      }}
+    >
       {children}
     </PortfolioContext.Provider>
   )

@@ -7,12 +7,7 @@
 }
 
 .bg-img {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-    url('./assets/navBack.jpg');
+  background-image: url('./assets/background//background1.jpg');
 
   position: relative;
   background-size: cover;
@@ -22,4 +17,10 @@
 
 .zindex {
   z-index: 100000;
+}
+
+.boxShaddow {
+  box-shadow: 2px -3px 0px 0px #a74318;
+  -webkit-box-shadow: 2px -3px 0px 0px #a74318;
+  -moz-box-shadow: 2px -3px 0px 0px #a74318;
 }

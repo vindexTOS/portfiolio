@@ -2,7 +2,7 @@ import React from 'react'
 import { UsePortfolioContext } from '../context/PortfolioContext'
 import ProjectCard from './ProjectCard'
 const Projects = () => {
-  const { Project } = UsePortfolioContext()
+  const { Project, projectRef } = UsePortfolioContext()
   const style = {
     mainDiv: `w-[100%] h-[100%] py-20 bg-[#24273d] flex flex-wrap  gap-4  items-center justify-center`,
   }
@@ -19,6 +19,7 @@ const Projects = () => {
           icons={val.icons}
         />
       ))}
+      <span ref={projectRef}></span>
     </section>
   )
 }
