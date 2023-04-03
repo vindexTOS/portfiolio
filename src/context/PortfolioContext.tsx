@@ -6,6 +6,7 @@ import { TbBrandTailwind, TbBrandVite } from 'react-icons/tb'
 import { IoLogoJavascript } from 'react-icons/io'
 import { IconBaseProps, IconType } from 'react-icons'
 import { SiTypescript } from 'react-icons/si'
+import { useNavigate } from 'react-router-dom'
 
 type ProjectItemType = {
   title: string
@@ -24,6 +25,9 @@ type Cell = {
   navRef: (link: string) => void
   dropOutMenu: boolean
   setDropOutMenu: React.Dispatch<boolean>
+  Navigate: (link: string) => void
+  CloseWindow: () => void
+  navRelocation: boolean
 }
 
 const PortfolioContext = createContext<Cell | null>(null)
@@ -143,6 +147,21 @@ export const PortfolioContextProvider = ({
   /// sec attempt of portfolio logic
 
   const [dropOutMenu, setDropOutMenu] = useState<boolean>(false)
+
+  // animation when opening a window
+  const [navRelocation, setNavRelocation] = useState<boolean>(true)
+
+  // to open up the window
+  const navigate = useNavigate()
+  const Navigate = (link: string) => {
+    setNavRelocation(false)
+    navigate(link)
+  }
+  // to close the window
+  const CloseWindow = () => {
+    setNavRelocation(!navRelocation)
+    navigate('/')
+  }
   return (
     <PortfolioContext.Provider
       value={{
@@ -152,6 +171,9 @@ export const PortfolioContextProvider = ({
         navRef,
         dropOutMenu,
         setDropOutMenu,
+        Navigate,
+        CloseWindow,
+        navRelocation,
       }}
     >
       {children}
