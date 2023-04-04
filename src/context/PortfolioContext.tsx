@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useRef, useState } from 'react'
+import React, {
+  createContext,
+  useContext,
+  useRef,
+  useState,
+  useReducer,
+} from 'react'
 import { imgdata } from '../assets/imgdata'
 import { FaReact } from 'react-icons/fa'
 import { SiFirebase } from 'react-icons/si'
@@ -7,6 +13,13 @@ import { IoLogoJavascript } from 'react-icons/io'
 import { IconBaseProps, IconType } from 'react-icons'
 import { SiTypescript } from 'react-icons/si'
 import { useNavigate } from 'react-router-dom'
+type Action = {
+  type: string
+  payload: string
+}
+type State = {
+  productID: string
+}
 
 type ProjectItemType = {
   title: string
@@ -15,6 +28,7 @@ type ProjectItemType = {
   git: string
   demovideo: string
   imgs: string[]
+  id: string
   icons: IconBaseProps[]
 }
 
@@ -28,6 +42,8 @@ type Cell = {
   Navigate: (link: string) => void
   CloseWindow: () => void
   navRelocation: boolean
+  projectDispatch: React.Dispatch<Action>
+  projectState: State
 }
 
 export const portfolioData = {
@@ -92,6 +108,7 @@ export const PortfolioContextProvider = ({
         <SiFirebase className="text-[#FFA611]" />,
         <TbBrandTailwind className="text-blue-500" />,
       ],
+      id: 'ranger-app',
     },
     {
       title: 'PC Market App',
@@ -119,6 +136,7 @@ export const PortfolioContextProvider = ({
         <SiFirebase className="text-[#FFA611]" />,
         <TbBrandTailwind className="text-blue-500" />,
       ],
+      id: 'pc-market-app',
     },
     {
       title: 'Cs Go Case Simulator',
@@ -140,6 +158,7 @@ export const PortfolioContextProvider = ({
         <TbBrandTailwind className="text-blue-500" />,
         <TbBrandVite className="text-purple-500" />,
       ],
+      id: 'cs-go-simulator-app',
     },
     {
       title: 'DogGPT',
@@ -154,6 +173,7 @@ export const PortfolioContextProvider = ({
 
         <TbBrandTailwind className="text-blue-500" />,
       ],
+      id: 'dog-gpt',
     },
   ]
   const aboutRef = useRef(null)
@@ -191,9 +211,19 @@ export const PortfolioContextProvider = ({
     setNavRelocation(true)
     navigate('/')
   }
+  // project reducer
 
-  // data for about
-
+  const projectReducer = (state: State, action: Action) => {
+    switch (action.type) {
+      case 'id':
+        return { productID: state.productID = action.payload }
+      default:
+        return state
+    }
+  }
+  const [projectState, projectDispatch] = useReducer(projectReducer, {
+    productID: '',
+  })
   return (
     <PortfolioContext.Provider
       value={{
@@ -206,6 +236,8 @@ export const PortfolioContextProvider = ({
         Navigate,
         CloseWindow,
         navRelocation,
+        projectState,
+        projectDispatch,
       }}
     >
       {children}

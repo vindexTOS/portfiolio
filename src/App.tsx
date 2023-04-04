@@ -3,7 +3,8 @@ import Home from './componentsTwo/Home'
 import Footer from './componentsTwo/Footer'
 import AboutMe from './componentsTwo/AboutMe'
 import Skills from './componentsTwo/Skills'
-import Projects from './componentsTwo/Projects'
+import Projects from './componentsTwo/projects/Projects'
+import ProjectDiv from './componentsTwo/projects/ProjectDiv'
 function App() {
   return (
     <>
