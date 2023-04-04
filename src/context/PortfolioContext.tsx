@@ -216,13 +216,17 @@ export const PortfolioContextProvider = ({
   const projectReducer = (state: State, action: Action) => {
     switch (action.type) {
       case 'id':
-        return { productID: state.productID = action.payload }
+        return {
+          ...state,
+          productID: state.productID = action.payload,
+        }
+
       default:
         return state
     }
   }
   const [projectState, projectDispatch] = useReducer(projectReducer, {
-    productID: '',
+    productID: 'ranger-app',
   })
   return (
     <PortfolioContext.Provider
