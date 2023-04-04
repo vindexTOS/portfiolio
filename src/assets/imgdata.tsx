@@ -27,6 +27,12 @@ import inventory from '../assets/csgo/inventory.jpg'
 import knifecase from '../assets/csgo/knifecase.jpg'
 import mainDog from '../assets/dog/main.jpg'
 import res from '../assets/dog/res.jpg'
+import billing from '../assets/giosgym/billinggym.jpg'
+import cart from '../assets/giosgym/cart gym.jpg'
+import contacnt from '../assets/giosgym/contantgym.jpg'
+import maingym from '../assets/giosgym/maingym.jpg'
+import shippinggym from '../assets/giosgym/shippinggym.jpg'
+import singleproductgym from '../assets/giosgym/singleproduct.jpg'
 export const imgdata = {
   awards,
   bmi,
@@ -57,4 +63,11 @@ export const imgdata = {
   knifecase,
   mainDog,
   res,
+  // gym
+  billing,
+  cart,
+  contacnt,
+  maingym,
+  shippinggym,
+  singleproductgym,
 }

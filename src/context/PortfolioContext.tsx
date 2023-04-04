@@ -26,10 +26,11 @@ type ProjectItemType = {
   dec: string
   link: string
   git: string
-  demovideo: string
+  demovideo?: string
   imgs: string[]
   id: string
   icons: IconBaseProps[]
+  personal: string
 }
 
 type Cell = {
@@ -108,6 +109,13 @@ export const PortfolioContextProvider = ({
         <SiFirebase className="text-[#FFA611]" />,
         <TbBrandTailwind className="text-blue-500" />,
       ],
+      personal: `As a fitness enthusiast, I came up with an original idea for a fitness app that sets itself apart from the rest. What makes it unique is the award system and achievements that incentivize users to strive for excellence day after day. More information about this app can be found in the description section below.
+
+      When I first tackled this project using React, it was one of the biggest challenges I had faced. It took me two months to complete, and looking back, there are many areas where I could have done things better. For instance, the code is hard to maintain due to my incomplete understanding of the underlying principles. I could have also made the app more dynamic instead of relying on hardcoding many elements. Nonetheless, despite its shortcomings, the app works as intended, and the experience was invaluable in helping me learn more about React.
+      
+      Since then, I have worked on several other projects, and I can attest that my coding has improved significantly. I attribute this improvement to the lessons learned while building this fitness app. For example, I started using TypeScript, which has made my code much cleaner. I have also gained a better understanding of what it takes to build successful big projects.
+      
+      My plan now is to remake the fitness app using React Native and deploy it on an app store. `,
       id: 'ranger-app',
     },
     {
@@ -137,6 +145,7 @@ export const PortfolioContextProvider = ({
         <TbBrandTailwind className="text-blue-500" />,
       ],
       id: 'pc-market-app',
+      personal: `My second significant project was developing a PC market app inspired by the Georgian website mymarket.ge ( Read more about it on down below). Despite being more complex and extensive than the Ranger Fitness App, I completed it in just three weeks. The code is much cleaner and more dynamic, and I learned a lot about Firebase. This was also my first project using TypeScript, making it a valuable learning experience.,Overall, building the PC market app was a significant milestone in my coding journey, and it has been instrumental in developing my skills as a developer.`,
     },
     {
       title: 'Cs Go Case Simulator',
@@ -159,6 +168,7 @@ export const PortfolioContextProvider = ({
         <TbBrandVite className="text-purple-500" />,
       ],
       id: 'cs-go-simulator-app',
+      personal: `I developed this app as a personal challenge and a tribute to one of my favorite games, CS:GO. Although it's nothing extraordinary, the process of creating it was relatively straightforward. It only took me a day to complete, with 90% of it involving copy-pasting photo links and gun descriptions from Steam.,It was a fun side project that allowed me to challenge myself and expand my coding skills in a low-pressure environment.`,
     },
     {
       title: 'DogGPT',
@@ -174,6 +184,32 @@ export const PortfolioContextProvider = ({
         <TbBrandTailwind className="text-blue-500" />,
       ],
       id: 'dog-gpt',
+      personal: `Not alot to say about this app you can just read general description down below  `,
+    },
+    {
+      title: 'Gios Gym Market',
+      dec: `This website is for a gym equipment store, allowing clients to search and purchase equipment. It includes features such as billing information and the ability to add items to a cart, as well as a section showing similar products. Additionally, a loading layout is present while data is retrieved from Firebase `,
+      link: 'https://stirring-starburst-059007.netlify.app/',
+      git: 'https://github.com/vindexTOS/gios-gym',
+
+      imgs: [
+        imgdata.maingym,
+        imgdata.cart,
+        imgdata.contacnt,
+        imgdata.billing,
+        imgdata.shippinggym,
+        imgdata.singleproductgym,
+      ],
+      icons: [
+        <FaReact className="text-blue-400" />,
+        <IoLogoJavascript className="text-yellow-400" />,
+        <SiFirebase className="text-[#FFA611]" />,
+
+        <TbBrandTailwind className="text-blue-500" />,
+      ],
+      id: 'gym-market',
+      personal: `This was my first attempt at building a real app using React, and it took me a considerable amount of time to complete it. Although the code is not dynamic and heavily hardcoded, I was able to learn Tailwind CSS during the process.
+      Despite some issues with the code, such as creating the context API in the app file instead of creating a costume hook for it, and a lot of responsive styling problems that I could have fixed right now, I chose to let it stay how it was as a reminder how much I progressed since I  created this app   , Over all it was a valuable learning experience for me.   `,
     },
   ]
   const aboutRef = useRef(null)
