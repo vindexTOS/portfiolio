@@ -13,6 +13,7 @@ import { IoLogoJavascript } from 'react-icons/io'
 import { IconBaseProps, IconType } from 'react-icons'
 import { SiTypescript } from 'react-icons/si'
 import { useNavigate } from 'react-router-dom'
+import { skillsData } from '../assets/skillicons/SkillsData'
 type Action = {
   type: string
   payload: string
@@ -20,7 +21,12 @@ type Action = {
 type State = {
   productID: string
 }
-
+type SkillDataType = {
+  title: string
+  icon: string
+  color: string
+  bgo: string
+}[]
 type ProjectItemType = {
   title: string
   dec: string
@@ -45,6 +51,7 @@ type Cell = {
   navRelocation: boolean
   projectDispatch: React.Dispatch<Action>
   projectState: State
+  skills: SkillDataType
 }
 
 export const portfolioData = {
@@ -212,6 +219,71 @@ export const PortfolioContextProvider = ({
       Despite some issues with the code, such as creating the context API in the app file instead of creating a costume hook for it, and a lot of responsive styling problems that I could have fixed right now, I chose to let it stay how it was as a reminder how much I progressed since I  created this app   , Over all it was a valuable learning experience for me.   `,
     },
   ]
+  const bgOpacity = '.1'
+  const bghover = '.4'
+  const skills: SkillDataType = [
+    {
+      title: `JavaScript`,
+      icon: skillsData.js,
+      color: `rgba(255, 255, 0, ${bghover})`,
+      bgo: `rgba(255, 255, 0, ${bgOpacity})`,
+    },
+    {
+      title: `Typescript`,
+      icon: skillsData.typescript,
+      color: `rgba(0, 122, 204,  ${bghover})`,
+      bgo: `rgba(0, 122, 204,  ${bgOpacity})`,
+    },
+    {
+      title: `React`,
+      icon: skillsData.react,
+      color: `rgba(97, 219, 251,  ${bghover})`,
+      bgo: `rgba(97, 219, 251,  ${bgOpacity})`,
+    },
+    {
+      title: `TailwindCss`,
+      icon: skillsData.tailwind,
+      color: `rgba(34, 133, 245,  ${bghover})`,
+      bgo: `rgba(34, 133, 245,  ${bgOpacity})`,
+    },
+    {
+      title: `Git`,
+      icon: skillsData.git,
+      color: `rgba(255, 165, 0,  ${bghover})`,
+      bgo: `rgba(255, 165, 0,  ${bgOpacity})`,
+    },
+    {
+      title: `HTML`,
+      icon: skillsData.html,
+      color: `rgba(255, 165, 0,  ${bghover})`,
+      bgo: `rgba(255, 165, 0,  ${bgOpacity})`,
+    },
+    {
+      title: `CSS`,
+      icon: skillsData.css,
+      color: `rgba(0, 152, 255,  ${bghover})`,
+      bgo: `rgba(0, 152, 255,  ${bgOpacity})`,
+    },
+    {
+      title: `Framer Motion`,
+      icon: skillsData.framer,
+      color: `rgba(138, 48, 255,  ${bghover})`,
+      bgo: `rgba(138, 48, 255,  ${bgOpacity})`,
+    },
+    {
+      title: `Firebase`,
+      icon: skillsData.firebase,
+      color: `rgba(255, 166, 17,  ${bghover})`,
+      bgo: `rgba(255, 166, 17,  ${bgOpacity})`,
+    },
+    {
+      title: `Vite`,
+      icon: skillsData.vite,
+      color: `rgba(144, 17, 255,  ${bghover})`,
+      bgo: `rgba(144, 17, 255,  ${bgOpacity})`,
+    },
+  ]
+
   const aboutRef = useRef(null)
   const projectRef = useRef(null)
 
@@ -278,6 +350,7 @@ export const PortfolioContextProvider = ({
         navRelocation,
         projectState,
         projectDispatch,
+        skills,
       }}
     >
       {children}

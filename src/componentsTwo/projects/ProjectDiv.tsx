@@ -58,8 +58,8 @@ const ProjectDiv: FC<ProjectDivProps> = ({ zoom }) => {
     p: `  text-gray-500 projectPFont bg-white p-2 rounded-[20px]`,
     iconsDiv: `flex flex-col text-[4rem]  w-[100%] items-center justify-center bg-white p-2 rounded-[20px]`,
     linkDiV: `w-[100%] flex gap-5 pb-2 justify-center bg-white p-2 rounded-[20px]`,
-    innerLinks: ` flex items-center justify-starts gap-2 text-[14px]`,
-    links: `   text-blue-500 hover:text-blue-600 text-[2rem] max_sm:text-[0.8rem] max_XL3:text-[1rem]`,
+    innerLinks: ` flex items-center justify-starts gap-2 text-[14px] `,
+    links: `   text-blue-500 hover:text-blue-600 text-[2rem] max_sm:text-[0.8rem] max_XL3:text-[1rem]  `,
   }
   type InnerLinkProp = {
     styling: string
@@ -97,7 +97,7 @@ const ProjectDiv: FC<ProjectDivProps> = ({ zoom }) => {
       </div>
       <div className={style.linkDiV}>
         <InnerLinks
-          styling="text-blue-400 text-[2rem]"
+          styling="text-blue-400 text-[2rem] "
           title="Live website"
           link={link}
           Icon={SiNetlify}
@@ -118,7 +118,7 @@ const ProjectDiv: FC<ProjectDivProps> = ({ zoom }) => {
         )}
       </div>
       <div className={style.iconsDiv}>
-        <div className="flex gap-20 max_sm:gap-10">
+        <div className="flex gap-20 max_sm:gap-0 max_md2:gap-5">
           {icons?.map((val: any) => val)}
         </div>
       </div>

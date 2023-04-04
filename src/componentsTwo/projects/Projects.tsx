@@ -9,8 +9,8 @@ const Projects = () => {
 
   const style = {
     mainDiv: `${
-      zoom ? 'w-[100%] h-[100%] mt-[4rem]' : 'w-[70%] h-[80%] '
-    } max_lg:w-[100%] max_lg:h-[100%] flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `,
+      zoom ? 'w-[100%] h-[100%]  mt-[4rem]' : 'w-[70%] h-[80%] '
+    } max_lg:w-[100%] max_lg:h-[90%]   max_lg:mt-8 flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `,
     topDiv: `w-[100%]  flex items-center justify-between px-5 h-[50px]  bg-gray-800`,
 
     section: `bg-gray-100 w-[100%] h-[100%]   `,

@@ -11,7 +11,7 @@ const Footer = () => {
   const { dropOutMenu, setDropOutMenu, Navigate } = UsePortfolioContext()
   const style = {
     footer: `w-[100vw] h-[72px] bottom-0 bg-[#245a50] boxShaddow absolute flex `,
-    iconDiv: `flexitems-center justify-center h-[100%] w-[13rem]  p-2 px-5`,
+    iconDiv: `flex items-center justify-center h-[100%] w-[5rem] rounded-[50%]   `,
     img: `w-[50px] cursor-pointer    ${iconImg && 'rotate-180'} `,
     options: `flex items-center justify-center   `,
   }
