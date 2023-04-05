@@ -7,12 +7,18 @@ import work from '../assets/icons/work.png'
 import skills from '../assets/icons/skills.png'
 import { motion as m } from 'framer-motion'
 const Main = () => {
-  const { navRelocation } = UsePortfolioContext()
+  const { navRelocation, layoutState } = UsePortfolioContext()
   const style = {
-    main: `w-[100vw] h-[100vh]  bg-img relative flex items-center justify-center`,
+    main: `w-[100vw] h-[100vh]  ${
+      layoutState.greenLayout
+        ? 'bg-img'
+        : layoutState.purpleLayOut
+        ? 'bg-purple-img'
+        : 'bg-img'
+    }   relative flex items-center justify-center`,
     navCardSection: ` ${
       navRelocation
-        ? 'flex items-center justify-center  max_md:gap-10 flex-wrap  max_md:mb-20 '
+        ? 'flex items-center justify-center  max_md:gap-10  max_sm:gap-0 flex-wrap  max_md:mb-20 '
         : 'flex flex-col justify-start h-[100%] py-10  items-start w-[100%] gap-5 px-5'
     }`,
   }

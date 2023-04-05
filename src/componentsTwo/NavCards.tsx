@@ -10,23 +10,29 @@ type NavCardProsp = {
   link: string
 }
 const NavCards: FC<NavCardProsp> = ({ img, title, styling, link }) => {
-  const { Navigate, navRelocation } = UsePortfolioContext()
+  const { Navigate, navRelocation, layoutState } = UsePortfolioContext()
   const location = useLocation()
   const style = {
     mainDiv: `   ${
       navRelocation
-        ? 'w-[370px] h-[320px] max_md:h-[220px] max_md:w-[320px] flex items-center justify-center relative'
+        ? 'w-[370px] h-[320px] max_md:h-[220px] max_md:w-[320px]  max_sm:h-[190px]  flex items-center justify-center relative'
         : ''
     }    `,
-    content: ` gap-2 items-center justify-center  flex flex-col  bg-[#245a50]  cursor-pointer   ${
+    content: ` gap-2 items-center justify-center  flex flex-col  ${
+      layoutState.greenLayout
+        ? 'bg-[#245a50] boxShaddow text-white'
+        : layoutState.purpleLayOut
+        ? 'bg-[#2d648e]  cardBoxShaddowPurple rounded-[40px] text-blue-200'
+        : ''
+    } bg-[#245a50]  cursor-pointer   ${
       location.pathname === `/${link}` ? 'cardBoxOn' : 'cardBoxShaddow '
     }  ${
       navRelocation
-        ? 'w-[340px] h-[300px]   max_md:h-[200px] max_md:w-[300px] '
+        ? 'w-[340px] h-[300px]  max_sm:h-[160px]   max_md:h-[200px] max_md:w-[300px] '
         : 'w-[120px] h-[120px]'
     }`,
-    img: `w-[50%]   ${styling}`,
-    header: ` text-white  flex items-center justify-center font-bold ${
+    img: `w-[50%]  max_sm:w-[35%]  ${styling}`,
+    header: `   flex items-center justify-center font-bold ${
       navRelocation ? 'text-[1.5rem] w-[9rem]' : ''
     }`,
   }

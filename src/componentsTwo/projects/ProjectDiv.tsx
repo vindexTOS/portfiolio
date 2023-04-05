@@ -12,7 +12,7 @@ import { SiNetlify } from 'react-icons/si'
 
 type ProjectDivProps = { zoom: boolean }
 const ProjectDiv: FC<ProjectDivProps> = ({ zoom }) => {
-  const { Project, projectState } = UsePortfolioContext()
+  const { Project, projectState, layoutState } = UsePortfolioContext()
 
   const projectData = Project?.find(
     (val: any) => val.id === projectState.productID,
@@ -47,17 +47,53 @@ const ProjectDiv: FC<ProjectDivProps> = ({ zoom }) => {
     section: ` flex flex-col gap-5 w-[100%]   ${
       zoom ? 'h-[1800px]' : 'h-[100%]'
     }  p-5 `,
-    header: `text-[2rem]  text-gray-600 w-[100%] bg-white rounded-[20px] flex px-5 py-3 projectHeader`,
+    header: `text-[2rem]   w-[100%] ${
+      layoutState.greenLayout
+        ? 'bg-white text-gray-600 '
+        : layoutState.purpleLayOut
+        ? 'bg-gray-900 bg-opacity-70 text-gray-200 font-bold '
+        : ''
+    } rounded-[20px] flex px-5 py-3 projectHeader`,
     headerPara: `text-[2rem]  text-gray-600 w-[100%] text-white rounded-[20px] flex px-5 py-3 projectHeader items-center  flex justify-center `,
-    imgDiv: `relative w-[100%] flex items-center justify-center bg-white p-5 rounded-[20px] max_sm:p-0 `,
+    imgDiv: `relative w-[100%] flex items-center justify-center   ${
+      layoutState.greenLayout
+        ? 'bg-white '
+        : layoutState.purpleLayOut
+        ? 'bg-gray-900 bg-opacity-70'
+        : ''
+    } p-5 rounded-[20px] max_sm:p-0 `,
     img: ` w-[80%] rounded-[10px] outline outline-[2px] outline-gray-800 max_sm:w-[100%] `,
-    btn: `text-[4rem] text-white hover:text-gray-400 cursor-pointer bg-gray-200 hover:bg-gray-900 h-[90%] rounded-[20px] max_XL3:text-[3rem] max_XL3:bg-opacity-0 max_XL3:text-gray-700 max_XL3:hover:bg-opacity-0   `,
+    btn: `text-[4rem] text-white  cursor-pointer  h-[90%] rounded-[20px] max_XL3:text-[3rem] max_XL3:bg-opacity-0  ${
+      layoutState.greenLayout
+        ? 'hover:text-gray-400 bg-gray-200 hover:bg-gray-900 max_XL3:text-gray-700 max_XL3:hover:bg-opacity-0 '
+        : layoutState.purpleLayOut
+        ? 'bg-gray-100 bg-opacity-50 hover:bg-gray-900 text-white'
+        : ''
+    }  `,
     btnDiv: `absolute flex justify-between items-center h-[100%] w-[100%] px-10 max_XL3:w-[80%] max_sm:w-[100%] max_sm:p-0 ${
       projectState.productID === '' && 'hidden'
     } `,
-    p: `  text-gray-500 projectPFont bg-white p-2 rounded-[20px]`,
-    iconsDiv: `flex flex-col text-[4rem]  w-[100%] items-center justify-center bg-white p-2 rounded-[20px]`,
-    linkDiV: `w-[100%] flex gap-5 pb-2 justify-center bg-white p-2 rounded-[20px]`,
+    p: `   projectPFont   p-2 rounded-[20px] ${
+      layoutState.greenLayout
+        ? 'bg-white text-gray-500 '
+        : layoutState.purpleLayOut
+        ? 'bg-gray-900 bg-opacity-60 text-white font-bold'
+        : ''
+    }`,
+    iconsDiv: `flex flex-col text-[4rem]  w-[100%] items-center justify-center  ${
+      layoutState.greenLayout
+        ? 'bg-white '
+        : layoutState.purpleLayOut
+        ? 'bg-gray-900 bg-opacity-80'
+        : ''
+    } p-2 rounded-[20px]`,
+    linkDiV: `w-[100%] flex gap-5 pb-2 justify-center  ${
+      layoutState.greenLayout
+        ? 'bg-white'
+        : layoutState.purpleLayOut
+        ? 'bg-gray-900 bg-opacity-80'
+        : ''
+    } p-2 rounded-[20px]`,
     innerLinks: ` flex items-center justify-starts gap-2 text-[14px] `,
     links: `   text-blue-500 hover:text-blue-600 text-[2rem] max_sm:text-[0.8rem] max_XL3:text-[1rem]  `,
   }
@@ -123,11 +159,29 @@ const ProjectDiv: FC<ProjectDivProps> = ({ zoom }) => {
         </div>
       </div>
       <div className={style.p}>
-        <h1 className="text-[1.4rem] text-gray-800 text-center">My Take</h1>
+        <h1
+          className={`text-[1.4rem]  text-center ${
+            layoutState.greenLayout
+              ? 'text-gray-800'
+              : layoutState.purpleLayOut
+              ? 'text-gray-200 font-bold'
+              : ''
+          } `}
+        >
+          My Take
+        </h1>
         <p>{personal}</p>
       </div>
       <div className={style.p}>
-        <h1 className="text-[1.4rem] text-gray-800 text-center">
+        <h1
+          className={`text-[1.4rem]  text-center  ${
+            layoutState.greenLayout
+              ? 'text-gray-800'
+              : layoutState.purpleLayOut
+              ? 'text-gray-200 font-bold'
+              : ''
+          }`}
+        >
           General App Description
         </h1>
         <p>{dec}</p>

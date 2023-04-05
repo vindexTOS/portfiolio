@@ -32,24 +32,48 @@ const AboutMe = () => {
   ]
   const [zoom, setZoom] = React.useState<boolean>(false)
 
-  const { CloseWindow } = UsePortfolioContext()
+  const { CloseWindow, layoutState } = UsePortfolioContext()
   const style = {
     mainDiv: `${
       zoom ? 'w-[100%] h-[100%] mt-[4rem]' : 'w-[70%] h-[80%] '
     }  max_lg:w-[100%] max_lg:h-[90%]   max_lg:mt-8  flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `,
     topDiv: `w-[100%]  flex items-center justify-between px-5 h-[50px]  bg-gray-800`,
-    section: `bg-gray-100 w-[100%] h-[100%]   `,
-    mainContent: ` flex w-[100%] h-[93%] p-2 gap-5 justify-between overflow-y-scroll  max_md:flex-col `,
+    section: ` w-[100%] h-[100%] ${
+      layoutState.greenLayout
+        ? 'bg-gray-100'
+        : layoutState.purpleLayOut
+        ? 'bg-section-purple'
+        : ''
+    }   `,
+    mainContent: ` flex w-[100%] h-[93%] max_sm:h-[90%]   p-2 gap-5 justify-between overflow-y-scroll  max_md:flex-col `,
     header: `text-white text-[1.5rem] `,
     icon: `w-[2rem] h-[2rem] flex  items-center  justify-center font-bold text-[1.5rem] hover:bg-red-500  bg-red-600 text-white rounded-[5px]`,
     iconZoom: `text-[2rem] bg-green-600 hover:bg-green-400 text-white rounded-[5px] `,
     btnDiv: `gap-2 flex `,
-    photoDiv: `w-[500px] max_md:w-[100%] bg-white h-[93%] flex flex-col  justify-center  items-center gap-5 py-4 `,
+    photoDiv: `w-[500px] max_md:w-[100%]  ${
+      layoutState.greenLayout
+        ? 'bg-white '
+        : layoutState.purpleLayOut
+        ? 'bg-gray-200 bg-opacity-30'
+        : ''
+    }  h-[93%] flex flex-col  justify-center  items-center gap-5 py-4 `,
     img: `w-[270px] h-[270px]`,
-    infoBtn: `flex items-center text-[1rem]  font-bold w-[270px] gap-5 outline outline-[1px] p-2 py-3 cursor-pointer hover:bg-gray-800 text-gray-500 hover:text-white`,
-    infoDiv: `flex flex-col gap-2 max_md:flex-row max_md:flex-wrap max_md:items-center max_md:justify-center`,
+    infoBtn: `flex items-center text-[1rem]  font-bold w-[270px] gap-5 outline outline-[1px] p-2 py-3 cursor-pointer  ${
+      layoutState.greenLayout
+        ? 'hover:bg-gray-800 text-gray-500  hover:text-white  '
+        : layoutState.purpleLayOut
+        ? ' bg-gray-800 text-gray-500   text-white  hover:bg-gray-900 hover:text-purple-700'
+        : ''
+    } `,
+    infoDiv: `flex flex-col  gap-2 max_md:flex-row max_md:flex-wrap max_md:items-center max_md:justify-center`,
     copySpan: `absolute w-[5rem] h-[2.3rem] bg-green-300 text-white rounded-[20px] flex items-center text-center justify-center font-bold text-[1.2rem] mt-10 ml-[8rem]`,
-    textDiv: `  w-[80%] h-[100%] px-10   max_md:px-5 flex flex-col gap-5 max_md:w-[100%]`,
+    textDiv: `  w-[80%]  max_sm:h-[1500px] h-[100vh] px-10   max_md:px-5 flex flex-col gap-5 max_md:w-[100%]   ${
+      layoutState.greenLayout
+        ? '  '
+        : layoutState.purpleLayOut
+        ? 'bg-gray-200 bg-opacity-30'
+        : ''
+    }  `,
     headerDiv: `flex flex-col max_md:text-center `,
     InreleventDiv: `flex flex-col  `,
   }
@@ -131,21 +155,61 @@ const AboutMe = () => {
           {/* Text area  */}
           <div className={style.textDiv}>
             <div className={style.headerDiv}>
-              <h1 className="text-[3rem] text-gray-500">
+              <h1
+                className={` text-[3rem] ${
+                  layoutState.greenLayout
+                    ? 'text-gray-500'
+                    : layoutState.purpleLayOut
+                    ? 'text-white font-bold'
+                    : ''
+                } `}
+              >
                 Hi, My Name Is <span className="text-orange-500">Giorgi</span>
               </h1>
-              <p className="text-gray-500  text-[1.1rem]">
+              <p
+                className={`   text-[1.1rem] ${
+                  layoutState.greenLayout
+                    ? 'text-gray-500'
+                    : layoutState.purpleLayOut
+                    ? 'text-white font-bold'
+                    : ''
+                } `}
+              >
                 I am a front-end web developer
               </p>
             </div>
-            <p className="text-gray-500  text-[1.1rem] ">
+            <p
+              className={`   text-[1.1rem]  ${
+                layoutState.greenLayout
+                  ? 'text-gray-500'
+                  : layoutState.purpleLayOut
+                  ? 'text-white  textshaddow '
+                  : ''
+              }`}
+            >
               {portfolioData.aboutMe}
             </p>
             <div className={style.InreleventDiv}>
-              <h1 className="text-[1.6rem] text-blue-900  max_md:text-center ">
+              <h1
+                className={`text-[1.6rem]   max_md:text-center  ${
+                  layoutState.greenLayout
+                    ? 'text-blue-900'
+                    : layoutState.purpleLayOut
+                    ? 'text-white  textshaddow '
+                    : ''
+                }`}
+              >
                 Some Inrelevent Infomration About Me
               </h1>
-              <ol className="text-gray-600 flex flex-col gap-5 text-[1.1rem]  max_md:text-[1.1rem]   max_xl:text-[14px]">
+              <ol
+                className={`flex flex-col gap-5 text-[1.1rem]   max_md:text-[1.1rem]   max_xl:text-[14px] ${
+                  layoutState.greenLayout
+                    ? 'text-gray-600 '
+                    : layoutState.purpleLayOut
+                    ? 'text-white  textshaddow '
+                    : ''
+                } `}
+              >
                 {portfolioData.InreleventInfo.map((val: any) => (
                   <li className="flex items-center gap-2 ">{val.point}</li>
                 ))}

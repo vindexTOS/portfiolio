@@ -4,25 +4,41 @@ import { AiOutlineBars } from 'react-icons/ai'
 import folder from '../../assets/icons/folderclosed.png'
 import folderopen from '../../assets/icons/folderopen.png'
 import ProjectDiv from './ProjectDiv'
-import { motion as m } from 'framer-motion'
 type MainProps = {
   zoom: boolean
 }
 const MainProjectContent: FC<MainProps> = ({ zoom }) => {
-  const { Project, projectDispatch, projectState } = UsePortfolioContext()
+  const {
+    Project,
+    projectDispatch,
+    projectState,
+    layoutState,
+  } = UsePortfolioContext()
   const [hideFolders, setHideFolders] = useState<boolean>(false)
   const style = {
     mainContent: ` flex w-[100%] h-[93%] p-2 gap-5   justify-between  max_md:flex-col `,
-    folders: `w-[400px] max_md:w-[100%] bg-white h-[100%] flex flex-col px-10 gap-5 ${
-      hideFolders && 'max_sm:hidden'
+    folders: `w-[400px] max_md:w-[100%] ${
+      layoutState.greenLayout
+        ? 'bg-white '
+        : layoutState.purpleLayOut
+        ? 'bg-gray-900 bg-opacity-70'
+        : ''
+    } h-[100%] flex flex-col px-10 gap-5 ${hideFolders && 'max_sm:hidden'}`,
+    header: `flex text-[1.8rem] font-bold px-5  folderHeader ${
+      layoutState.greenLayout
+        ? 'text-gray-700'
+        : layoutState.purpleLayOut
+        ? 'text-gray-200  '
+        : ''
     }`,
-    header: `flex text-[1.8rem] font-bold px-5 text-gray-700 folderHeader`,
     folder: `hover:bg-gray-200 w-[100%] text-gray-400  h-[3rem] flex  folderFont items-center text-[1rem] gap-2 cursor-pointer px-4`,
     projectDiv: `w-[100%]  overflow-y-scroll   h-[100%] `,
     folderDiv: `flex flex-col gap-2 `,
     icon: `w-[2rem]`,
-    dropDownDiv: `w-[100%] flex  items-center  gap-10 px-5 sm:hidden `,
-    dropDown: `text-[3rem]`,
+    dropDownDiv: `w-[100%] flex  items-center  gap-10 px-5 sm:hidden ${
+      layoutState.purpleLayOut && 'bg-gray-900 bg-opacity-60 '
+    }`,
+    dropDown: `text-[3rem]  ${layoutState.purpleLayOut && 'text-gray-100 '} `,
   }
 
   return (
@@ -32,7 +48,17 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
         className={style.dropDownDiv}
       >
         <AiOutlineBars className={style.dropDown} />
-        <h1 className="text-[1.6rem] text-gray-800 ">Folders</h1>
+        <h1
+          className={`text-[1.6rem]  ${
+            layoutState.greenLayout
+              ? 'text-gray-800'
+              : layoutState.purpleLayOut
+              ? 'text-gray-200 font-bold '
+              : ''
+          } `}
+        >
+          Folders
+        </h1>
       </div>
       <div className={style.folders}>
         <h1 className={style.header}>Projects</h1>

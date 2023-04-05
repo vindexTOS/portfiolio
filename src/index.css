@@ -15,11 +15,52 @@
   background-repeat: no-repeat;
   background-position: center bottom;
 }
+.bg-purple-img {
+  background-image: url('./assets/background/purpleLay.jpg');
 
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+.bg-section-purple {
+  background-image: url('./assets/background/blueBg.jpg');
+
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+.bg-aboutBg-purple {
+  background-image: url('./assets/background/aboutBG.jpg');
+
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+.bg-projectBg-purple {
+  background-image: url('./assets/background/purpleProject.jpg');
+
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+.bg-skills-purple {
+  background-image: url('./assets/background/skillspurplebg.jpg');
+
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
 .zindex {
   z-index: 100000;
 }
-
+.textshaddow {
+  text-shadow: 0px 0px 3px rgba(255, 0, 0, 1);
+}
 .boxShaddow {
   box-shadow: 2px -3px 0px 0px #a74318;
   -webkit-box-shadow: 2px -3px 0px 0px #a74318;
@@ -41,6 +82,38 @@
   box-shadow: 0px 0px 11px 5px rgb(236, 116, 65);
   -webkit-box-shadow: 0px 0px 11px 5px rgb(236, 116, 65);
   -moz-box-shadow: 0px 0px 11px 5px rgb(236, 116, 65);
+}
+
+.menuBoxShaddowPurple {
+  box-shadow: 0px -10px 17px 0px rgba(249, 78, 165, 0.89);
+  -webkit-box-shadow: 0px -10px 17px 0px rgba(249, 78, 165, 0.89);
+  -moz-box-shadow: 0px -10px 17px 0px rgba(249, 78, 165, 0.89);
+}
+.cardBoxShaddowPurple {
+  box-shadow: 0px 0px 9px 2px #f94ea5;
+  -webkit-box-shadow: 0px 0px 9px 2px #f94ea5;
+  -moz-box-shadow: 0px 0px 9px 2px #f94ea5;
+}
+
+.cardBoxShaddowPurple:hover {
+  box-shadow: 0px 0px 16px 3px rgba(249, 78, 165, 1);
+  -webkit-box-shadow: 0px 0px 16px 3px rgba(249, 78, 165, 1);
+  -moz-box-shadow: 0px 0px 16px 3px rgba(249, 78, 165, 1);
+}
+
+.cardBoxOnPurple {
+  box-shadow: 0px 0px 11px 5px #f94ea5;
+  -webkit-box-shadow: 0px 0px 11px 5px #f94ea5;
+  -moz-box-shadow: 0px 0px 11px 5px #f94ea5;
+}
+
+.purpleBackground {
+  background: rgb(62, 0, 94);
+  background: linear-gradient(
+    129deg,
+    rgba(62, 0, 94, 1) 0%,
+    rgba(0, 203, 187, 1) 100%
+  );
 }
 
 .projectPFont {

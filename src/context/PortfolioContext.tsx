@@ -21,6 +21,14 @@ type Action = {
 type State = {
   productID: string
 }
+
+type layOutState = {
+  greenLayout: boolean
+  purpleLayOut: boolean
+}
+type layOutAction = {
+  type: string
+}
 type SkillDataType = {
   title: string
   icon: string
@@ -52,6 +60,8 @@ type Cell = {
   projectDispatch: React.Dispatch<Action>
   projectState: State
   skills: SkillDataType
+  layoutDispatch: React.Dispatch<layOutAction>
+  layoutState: layOutState
 }
 
 export const portfolioData = {
@@ -336,6 +346,32 @@ export const PortfolioContextProvider = ({
   const [projectState, projectDispatch] = useReducer(projectReducer, {
     productID: 'ranger-app',
   })
+
+  // different layout logic
+
+  const layOutReducer = (state: layOutState, action: layOutAction) => {
+    switch (action.type) {
+      case 'green':
+        return {
+          ...state,
+          greenLayOut: state.greenLayout = true,
+          purpleLayOut: state.purpleLayOut = false,
+        }
+      case 'purple':
+        return {
+          ...state,
+          greenLayOut: state.greenLayout = false,
+          purpleLayOut: state.purpleLayOut = true,
+        }
+      default:
+        return state
+    }
+  }
+
+  const [layoutState, layoutDispatch] = useReducer(layOutReducer, {
+    greenLayout: true,
+    purpleLayOut: false,
+  })
   return (
     <PortfolioContext.Provider
       value={{
@@ -351,6 +387,8 @@ export const PortfolioContextProvider = ({
         projectState,
         projectDispatch,
         skills,
+        layoutState,
+        layoutDispatch,
       }}
     >
       {children}

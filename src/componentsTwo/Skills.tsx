@@ -3,7 +3,7 @@ import { UsePortfolioContext } from '../context/PortfolioContext'
 import { motion as m } from 'framer-motion'
 import { MdCancelPresentation, MdZoomOutMap, MdZoomInMap } from 'react-icons/md'
 const Skills = () => {
-  const { CloseWindow, skills } = UsePortfolioContext()
+  const { CloseWindow, skills, layoutState } = UsePortfolioContext()
 
   const [zoom, setZoom] = React.useState<boolean>(false)
 
@@ -12,16 +12,22 @@ const Skills = () => {
       zoom ? 'w-[100%] h-[100%]  mt-[4rem]' : 'w-[70%] h-[80%] '
     } max_lg:w-[100%] max_lg:h-[90%]   max_lg:mt-8 flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `,
     topDiv: `w-[100%]  flex items-center justify-between px-5 h-[50px]  bg-gray-800`,
-    section: `bg-gray-100 w-[100%] h-[100%] `,
+    section: ` w-[100%] h-[100%]  ${
+      layoutState.greenLayout
+        ? 'bg-gray-100'
+        : layoutState.purpleLayOut
+        ? 'bg-skills-purple'
+        : 'bg-white'
+    }`,
     header: `text-white text-[1.5rem] `,
     icon: `w-[2rem] h-[2rem] flex  items-center  justify-center font-bold text-[1.5rem] hover:bg-red-500  bg-red-600 text-white rounded-[5px]`,
     iconZoom: `text-[2rem] bg-green-600 hover:bg-green-400 text-white rounded-[5px] `,
     btnDiv: `gap-2 flex `,
-    skillsDiv: ` flex flex-wrap items-center justify-center w-[100%] h-[93%]  gap-20  max_sm:gap-10 max_sm:h-[90%]  overflow-y-scroll `,
-    singleSkill: `flex flex-col items-center justify-center max_sm:w-[100px]  `,
+    skillsDiv: ` flex flex-wrap items-center justify-center w-[100%] h-[93%] py-10 px-20 max_sm:p-0 gap-20  max_sm:gap-10 max_sm:h-[90%]  overflow-y-scroll `,
+    singleSkill: `flex flex-col items-center justify-center max_sm:w-[100px] gap-2  `,
     img: `w-[100px] h-[100px] max_sm:w-[40px] max_sm:h-[40px]`,
     imgDiv: `rounded-[50%] w-[180px] h-[180px] max_sm:w-[80px] max_sm:h-[80px]  bg-opacity-5  flex items-center justify-center`,
-    skillHeader: `text-[1.2rem]`,
+    skillHeader: `text-[1.2rem] font-bold text-gray-600`,
   }
   return (
     <div className={style.mainDiv}>
