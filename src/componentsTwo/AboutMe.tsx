@@ -48,7 +48,7 @@ const AboutMe = () => {
     mainContent: ` flex w-[100%] h-[93%] max_sm:h-[90%]   p-2 gap-5 justify-between overflow-y-scroll  max_md:flex-col `,
     header: `text-white text-[1.5rem] `,
     icon: `w-[2rem] h-[2rem] flex  items-center  justify-center font-bold text-[1.5rem] hover:bg-red-500  bg-red-600 text-white rounded-[5px]`,
-    iconZoom: `text-[2rem] bg-green-600 hover:bg-green-400 text-white rounded-[5px] `,
+    iconZoom: `text-[2rem] bg-green-600 hover:bg-green-400 text-white rounded-[5px] max_lg:hidden  `,
     btnDiv: `gap-2 flex `,
     photoDiv: `w-[500px] max_md:w-[100%]  ${
       layoutState.greenLayout

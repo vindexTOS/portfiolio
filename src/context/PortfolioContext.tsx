@@ -14,6 +14,7 @@ import { IconBaseProps, IconType } from 'react-icons'
 import { SiTypescript } from 'react-icons/si'
 import { useNavigate } from 'react-router-dom'
 import { skillsData } from '../assets/skillicons/SkillsData'
+import { NavData } from '../assets/calc/navData'
 type Action = {
   type: string
   payload: string
@@ -104,8 +105,7 @@ export const PortfolioContextProvider = ({
   const Project: ProjectItemType[] = [
     {
       title: 'Ranger App',
-      dec:
-        'This app is loaded with features, app help users achieve their fitness goals in a personalized and engaging way. The app calculates users BMI, age, and fitness status to create a customized workout program. The app also provides progress tracking and statistical analysis, so users can see how much they have improved over time. To keep users motivated, the app has a reward system that gives users awards and achievements for completing challenges. The app allows users to register and log in using Firebase, and users can also change their username and profile photo. With plans to add features such as user comparison statistics, this app is set to revolutionize the way people approach fitness and stay motivated towards their goals.',
+      dec: `This app is packed with features, app helps users achieve their fitness goals in a personalized and fun way.' The app calculates users' BMI, age, and health status to create a personalized exercise plan. The app also offers progress tracking and statistical analysis, so users can see their progress over time. To keep users motivated, the app has a rewards system that rewards users for completing challenges. The app allows users to register and sign in to Firebase, and users can change their name and profile picture. With plans to include features such as user comparison statistics, this app is designed to change the way people get fit and stay motivated towards their goals.`,
       link: `https://ranger-app.netlify.app/`,
       git: `https://github.com/vindexTOS/ranger-app`,
       demovideo: `https://www.youtube.com/watch?v=vKx7S7jNV8w`,
@@ -227,6 +227,31 @@ export const PortfolioContextProvider = ({
       id: 'gym-market',
       personal: `This was my first attempt at building a real app using React, and it took me a considerable amount of time to complete it. Although the code is not dynamic and heavily hardcoded, I was able to learn Tailwind CSS during the process.
       Despite some issues with the code, such as creating the context API in the app file instead of creating a costume hook for it, and a lot of responsive styling problems that I could have fixed right now, I chose to let it stay how it was as a reminder how much I progressed since I  created this app   , Over all it was a valuable learning experience for me.   `,
+    },
+    {
+      title: 'Bunch Of Calculators',
+      dec: `This project features a life expectancy calculator that determines your life expectancy based on your lifestyle and health condition. Additionally, there is a one rep max calculator for weightlifting that calculates your maximum weightlifting capacity between 100% and 55%. The compound interest calculator is self-explanatory. Lastly, the project includes some basic calculators such as a tip calculator and BMI calculator.`,
+      link: 'https://taupe-dieffenbachia-f6bd97.netlify.app/',
+      git: 'https://github.com/vindexTOS/calculators',
+
+      imgs: [
+        NavData.emi,
+        NavData.life,
+        NavData.onerep,
+        NavData.compauned,
+        NavData.bmi,
+
+        NavData.tipCal,
+      ],
+      icons: [
+        <FaReact className="text-blue-400" />,
+        <SiTypescript className="text-blue-500" />,
+        <TbBrandVite className="text-purple-500" />,
+
+        <TbBrandTailwind className="text-blue-500" />,
+      ],
+      id: 'calculators',
+      personal: `I do little challenges like this all the time to test my skills and make sure I am proficient with React. It took me less than five minutes to make most of this , but Life Expectation Calculator was bit challanging, Nothing special tho i manage to make it in less then a day , So  I combine all of this calculators  into one project. These calculators are primarily fitness-related, and some are financially related.`,
     },
   ]
   const bgOpacity = '.1'

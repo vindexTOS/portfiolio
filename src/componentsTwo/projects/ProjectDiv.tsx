@@ -62,7 +62,7 @@ const ProjectDiv: FC<ProjectDivProps> = ({ zoom }) => {
         ? 'bg-gray-900 bg-opacity-70'
         : ''
     } p-5 rounded-[20px] max_sm:p-0 `,
-    img: ` w-[80%] rounded-[10px] outline outline-[2px] outline-gray-800 max_sm:w-[100%] `,
+    img: ` w-[80%]    rounded-[10px] outline outline-[2px] outline-gray-800 max_sm:w-[100%] `,
     btn: `text-[4rem] text-white  cursor-pointer  h-[90%] rounded-[20px] max_XL3:text-[3rem] max_XL3:bg-opacity-0  ${
       layoutState.greenLayout
         ? 'hover:text-gray-400 bg-gray-200 hover:bg-gray-900 max_XL3:text-gray-700 max_XL3:hover:bg-opacity-0 '
