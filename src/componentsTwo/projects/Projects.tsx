@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { UsePortfolioContext } from '../../context/PortfolioContext'
 import { motion as m } from 'framer-motion'
 import { MdCancelPresentation, MdZoomOutMap, MdZoomInMap } from 'react-icons/md'
 import MainProjectContent from './MainProjectContent'
 const Projects = () => {
-  const { CloseWindow, layoutState } = UsePortfolioContext()
+  const { CloseWindow, layoutState, dragTurnOff } = UsePortfolioContext()
   const [zoom, setZoom] = React.useState<boolean>(false)
 
   const style = {
@@ -25,11 +25,16 @@ const Projects = () => {
     iconZoom: `text-[2rem] bg-green-600 hover:bg-green-400 text-white rounded-[5px] max_lg:hidden `,
     btnDiv: `gap-2 flex `,
   }
+
   return (
     <div className={style.mainDiv}>
       <m.section
+        drag={dragTurnOff}
+        dragConstraints={{ left: -1000, right: 1000, top: -500, bottom: 500 }}
+        dragElastic={false}
+        dragMomentum={false}
         initial={{ y: -2800 }}
-        animate={{ y: -70 }}
+        animate={{ y: -70, x: dragTurnOff ? 2 : 0 }}
         transition={{ duration: 0.6, type: 'spring' }}
         className={style.section}
       >

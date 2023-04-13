@@ -4,6 +4,7 @@ import React, {
   useRef,
   useState,
   useReducer,
+  useEffect,
 } from 'react'
 import { imgdata } from '../assets/imgdata'
 import { FaReact } from 'react-icons/fa'
@@ -63,6 +64,7 @@ type Cell = {
   skills: SkillDataType
   layoutDispatch: React.Dispatch<layOutAction>
   layoutState: layOutState
+  dragTurnOff: boolean
 }
 
 export const portfolioData = {
@@ -397,6 +399,24 @@ export const PortfolioContextProvider = ({
     greenLayout: true,
     purpleLayOut: false,
   })
+
+  // window drag stop functionality
+  const [width, setWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+  const [dragTurnOff, setDragTurnOff] = useState<boolean>(true)
+  useEffect(() => {
+    if (width < 450) {
+      setDragTurnOff(false)
+    } else {
+      setDragTurnOff(true)
+    }
+  }, [width])
+
   return (
     <PortfolioContext.Provider
       value={{
@@ -414,6 +434,7 @@ export const PortfolioContextProvider = ({
         skills,
         layoutState,
         layoutDispatch,
+        dragTurnOff,
       }}
     >
       {children}

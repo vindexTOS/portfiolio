@@ -9,9 +9,11 @@ import {
   AiOutlineZoomOut,
 } from 'react-icons/ai'
 import { SiNetlify } from 'react-icons/si'
-
-type ProjectDivProps = { zoom: boolean }
-const ProjectDiv: FC<ProjectDivProps> = ({ zoom }) => {
+type ProjectDivProps = {
+  zoom: boolean
+  scrollRef: React.MutableRefObject<null>
+}
+const ProjectDiv: FC<ProjectDivProps> = ({ zoom, scrollRef }) => {
   const { Project, projectState, layoutState } = UsePortfolioContext()
 
   const projectData = Project?.find(
@@ -119,7 +121,7 @@ const ProjectDiv: FC<ProjectDivProps> = ({ zoom }) => {
       <h1 className={style.header}>{title}</h1>
 
       <div className={style.imgDiv}>
-        <div className={style.btnDiv}>
+        <div className={style.btnDiv} ref={scrollRef}>
           <IoIosArrowDropleft
             onClick={() => ArrowMovment('left')}
             className={style.btn}

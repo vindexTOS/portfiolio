@@ -32,7 +32,7 @@ const AboutMe = () => {
   ]
   const [zoom, setZoom] = React.useState<boolean>(false)
 
-  const { CloseWindow, layoutState } = UsePortfolioContext()
+  const { CloseWindow, layoutState, dragTurnOff } = UsePortfolioContext()
   const style = {
     mainDiv: `${
       zoom ? 'w-[100%] h-[100%] mt-[4rem]' : 'w-[70%] h-[80%] '
@@ -45,12 +45,12 @@ const AboutMe = () => {
         ? 'bg-section-purple'
         : ''
     }   `,
-    mainContent: ` flex w-[100%] h-[93%] max_sm:h-[90%]   p-2 gap-5 justify-between overflow-y-scroll  max_md:flex-col `,
+    mainContent: ` flex w-[100%] h-[90%] max_sm:h-[90%]   p-2 gap-5 justify-between overflow-y-scroll  max_md:flex-col `,
     header: `text-white text-[1.5rem] `,
     icon: `w-[2rem] h-[2rem] flex  items-center  justify-center font-bold text-[1.5rem] hover:bg-red-500  bg-red-600 text-white rounded-[5px]`,
     iconZoom: `text-[2rem] bg-green-600 hover:bg-green-400 text-white rounded-[5px] max_lg:hidden  `,
     btnDiv: `gap-2 flex `,
-    photoDiv: `w-[500px] max_md:w-[100%]  ${
+    photoDiv: `w-[500px] h-[700px]  max_md:w-[100%]  ${
       layoutState.greenLayout
         ? 'bg-white '
         : layoutState.purpleLayOut
@@ -93,8 +93,12 @@ const AboutMe = () => {
   return (
     <div className={style.mainDiv}>
       <m.section
+        drag={dragTurnOff}
+        dragConstraints={{ left: -1000, right: 1000, top: -500, bottom: 500 }}
+        dragElastic={false}
+        dragMomentum={false}
         initial={{ y: -2800 }}
-        animate={{ y: -70 }}
+        animate={{ y: -70, x: dragTurnOff ? 2 : 0 }}
         transition={{ duration: 0.6, type: 'spring' }}
         className={style.section}
       >

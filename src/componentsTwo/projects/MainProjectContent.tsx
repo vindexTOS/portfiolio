@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useRef } from 'react'
 import { UsePortfolioContext } from '../../context/PortfolioContext'
 import { AiOutlineBars } from 'react-icons/ai'
 import folder from '../../assets/icons/folderclosed.png'
@@ -16,7 +16,7 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
   } = UsePortfolioContext()
   const [hideFolders, setHideFolders] = useState<boolean>(false)
   const style = {
-    mainContent: ` flex w-[100%] h-[93%] p-2 gap-5   justify-between  max_md:flex-col `,
+    mainContent: ` flex w-[100%] h-[90%] p-2 gap-5   justify-between  max_md:flex-col `,
     folders: `w-[400px] max_md:w-[100%] ${
       layoutState.greenLayout
         ? 'bg-white '
@@ -40,7 +40,15 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
     }`,
     dropDown: `text-[3rem]  ${layoutState.purpleLayOut && 'text-gray-100 '} `,
   }
-
+  const scrollRef = useRef(null)
+  React.useEffect(() => {
+    const scrollEvent = (scrollRef.current as unknown) as HTMLDivElement
+    if (scrollEvent) {
+      scrollEvent.scrollIntoView({
+        behavior: 'smooth',
+      })
+    }
+  }, [projectState.productID])
   return (
     <section className={style.mainContent}>
       <div
@@ -87,7 +95,7 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
         </div>
       </div>
       <div className={style.projectDiv}>
-        <ProjectDiv zoom={zoom} />
+        <ProjectDiv scrollRef={scrollRef} zoom={zoom} />
       </div>
     </section>
   )

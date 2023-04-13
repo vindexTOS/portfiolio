@@ -3,7 +3,12 @@ import { UsePortfolioContext } from '../context/PortfolioContext'
 import { motion as m } from 'framer-motion'
 import { MdCancelPresentation, MdZoomOutMap, MdZoomInMap } from 'react-icons/md'
 const Skills = () => {
-  const { CloseWindow, skills, layoutState } = UsePortfolioContext()
+  const {
+    CloseWindow,
+    skills,
+    layoutState,
+    dragTurnOff,
+  } = UsePortfolioContext()
 
   const [zoom, setZoom] = React.useState<boolean>(false)
 
@@ -32,8 +37,12 @@ const Skills = () => {
   return (
     <div className={style.mainDiv}>
       <m.section
+        drag={dragTurnOff}
+        dragConstraints={{ left: -1000, right: 1000, top: -500, bottom: 500 }}
+        dragElastic={false}
+        dragMomentum={false}
         initial={{ y: -2800 }}
-        animate={{ y: -70 }}
+        animate={{ y: -70, x: dragTurnOff ? 2 : 0 }}
         transition={{ duration: 0.6, type: 'spring' }}
         className={style.section}
       >
@@ -55,7 +64,7 @@ const Skills = () => {
         <div className={style.skillsDiv}>
           {skills.map((val: any) => {
             return (
-              <div className={style.singleSkill}>
+              <div key={String(val.bgo)} className={style.singleSkill}>
                 <m.div
                   whileHover={{ backgroundColor: `${val.color}` }}
                   transition={{ duration: 1 }}
