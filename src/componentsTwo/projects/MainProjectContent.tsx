@@ -9,7 +9,7 @@ type MainProps = {
 }
 const MainProjectContent: FC<MainProps> = ({ zoom }) => {
   const {
-    Project,
+    projectsData,
     projectDispatch,
     projectState,
     layoutState,
@@ -71,9 +71,10 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
       <div className={style.folders}>
         <h1 className={style.header}>Projects</h1>
         <div className={style.folderDiv}>
-          {Project.map((val: any, index: number) => {
+          {projectsData.map((val: any, index: number) => {
             return (
               <div
+                key={index}
                 onClick={() =>
                   projectDispatch({
                     type: 'id',

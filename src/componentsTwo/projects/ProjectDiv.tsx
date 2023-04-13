@@ -14,9 +14,9 @@ type ProjectDivProps = {
   scrollRef: React.MutableRefObject<null>
 }
 const ProjectDiv: FC<ProjectDivProps> = ({ zoom, scrollRef }) => {
-  const { Project, projectState, layoutState } = UsePortfolioContext()
+  const { projectsData, projectState, layoutState } = UsePortfolioContext()
 
-  const projectData = Project?.find(
+  const projectData = projectsData?.find(
     (val: any) => val.id === projectState.productID,
   )
 
@@ -157,7 +157,9 @@ const ProjectDiv: FC<ProjectDivProps> = ({ zoom, scrollRef }) => {
       </div>
       <div className={style.iconsDiv}>
         <div className="flex gap-20 max_sm:gap-0 max_md2:gap-5">
-          {icons?.map((val: any) => val)}
+          {icons?.map((val: any, index: number) => (
+            <p key={String(val + index)}>{val}</p>
+          ))}
         </div>
       </div>
       <div className={style.p}>

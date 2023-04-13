@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { motion as m } from 'framer-motion'
 import me from '../assets/me.jpg'
-import { UsePortfolioContext } from '../context/PortfolioContext'
+import { UsePortfolioContext } from '../../context/PortfolioContext'
 import { useLocation } from 'react-router-dom'
 type NavCardProsp = {
   img: string

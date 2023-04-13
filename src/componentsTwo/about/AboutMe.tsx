@@ -1,7 +1,7 @@
 import React from 'react'
-import { UsePortfolioContext } from '../context/PortfolioContext'
+import { UsePortfolioContext } from '../../context/PortfolioContext'
 import { motion as m } from 'framer-motion'
-import me2 from '../assets/me.jpg'
+import me2 from '../../assets/me.jpg'
 import { MdCancelPresentation, MdZoomOutMap, MdZoomInMap } from 'react-icons/md'
 import { GiBulletBill } from 'react-icons/gi'
 import {
@@ -11,7 +11,8 @@ import {
   AiFillYoutube,
 } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import { portfolioData } from '../context/PortfolioContext'
+import { portfolioData } from '../../DataUtils'
+
 const AboutMe = () => {
   const InfoData = [
     {
@@ -143,7 +144,7 @@ const AboutMe = () => {
                 </div>
               </div>
               {InfoData.map((val: any) => (
-                <div className={style.infoBtn}>
+                <div key={String(val)} className={style.infoBtn}>
                   {val.icon}
                   <Link
                     target="_blank"
@@ -183,9 +184,9 @@ const AboutMe = () => {
               </p>
             </div>
             <p
-              className={`   text-[1.1rem]  ${
+              className={`  aboutParagraph   text-[1.1rem]  ${
                 layoutState.greenLayout
-                  ? 'text-gray-500'
+                  ? 'text-gray-400'
                   : layoutState.purpleLayOut
                   ? 'text-white  textshaddow '
                   : ''
@@ -193,6 +194,46 @@ const AboutMe = () => {
             >
               {portfolioData.aboutMe}
             </p>
+            <div>
+              <h1
+                className={`text-[1.6rem] font-medium   max_md:text-center  ${
+                  layoutState.greenLayout
+                    ? 'text-orange-700'
+                    : layoutState.purpleLayOut
+                    ? 'text-white  textshaddow '
+                    : ''
+                }`}
+              >
+                My Goals
+              </h1>
+              <p
+                className={`  aboutParagraph   text-[1rem]  ${
+                  layoutState.greenLayout
+                    ? 'text-gray-400'
+                    : layoutState.purpleLayOut
+                    ? 'text-white  textshaddow '
+                    : ''
+                }`}
+              >
+                My ultimate goal is to become a full-time web developer, as I
+                have a passion for this job and I'm willing to put in the hard
+                work to make it happen. I'm currently seeking employment
+                opportunities where I can continue to grow and develop my skills
+                in web development. In addition to my professional goals, I'm
+                also working on a side project that's very important to me -
+                developing my own fitness app. I've already created a beta
+                version of the app, which you can check out in the Projects
+                section of my portfolio. As I continue to build my skills and
+                experience in web development, my goal is to become an expert in
+                my field and continue to create innovative, Ultimately, my aim
+                is to become a full-stack developer. I have been primarily
+                focused on front-end development thus far, as I believe that one
+                who chases two rabbits catches neither. However, I am eager to
+                expand my skillset and knowledge in back-end development in
+                order to become a well-rounded developer capable of creating
+                robust and efficient applications from end to end.
+              </p>
+            </div>
             <div className={style.InreleventDiv}>
               <h1
                 className={`text-[1.6rem]   max_md:text-center  ${

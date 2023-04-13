@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Fruktur&family=Khula&family=Staatliches&family=Tillana&display=swap');
 @tailwind base;
 @tailwind components;
@@ -6,7 +7,9 @@
 * {
   user-select: none;
 }
-
+.aboutParagraph {
+  font-family: 'Kanit', sans-serif;
+}
 .bg-img {
   background-image: url('./assets/background//background1.jpg');
 
@@ -60,6 +63,11 @@
 }
 .textshaddow {
   text-shadow: 0px 0px 3px rgba(255, 0, 0, 1);
+}
+.generalBoxShaddow {
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.74);
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.74);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.74);
 }
 .boxShaddow {
   box-shadow: 2px -3px 0px 0px #a74318;

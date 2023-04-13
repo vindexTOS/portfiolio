@@ -1,5 +1,5 @@
 import React from 'react'
-import { UsePortfolioContext } from '../context/PortfolioContext'
+import { UsePortfolioContext } from '../../context/PortfolioContext'
 import { motion as m } from 'framer-motion'
 import { MdCancelPresentation, MdZoomOutMap, MdZoomInMap } from 'react-icons/md'
 const Skills = () => {

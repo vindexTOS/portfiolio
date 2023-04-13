@@ -1,6 +1,6 @@
 import React from 'react'
-import Menu from './Menu'
-import NavCards from './NavCards'
+import Menu from './navigation/Menu'
+import NavCards from './navigation/NavCards'
 import { UsePortfolioContext } from '../context/PortfolioContext'
 import me from '../assets/me.jpg'
 import work from '../assets/icons/work.png'

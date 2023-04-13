@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Main from './Main'
-import Footer from './Footer'
+import Footer from './navigation/Footer'
 import { Outlet } from 'react-router-dom'
 const Home = () => {
   return (

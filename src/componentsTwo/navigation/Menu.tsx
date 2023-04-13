@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion as m } from 'framer-motion'
-import { UsePortfolioContext } from '../context/PortfolioContext'
+import { UsePortfolioContext } from '../../context/PortfolioContext'
 const Menu = () => {
   const { dropOutMenu, layoutDispatch, layoutState } = UsePortfolioContext()
   const style = {
@@ -26,8 +26,11 @@ const Menu = () => {
         onClick={() => layoutDispatch({ type: 'green' })}
       >
         <div className="flex gap-2 mt-10">
-          {new Array(3).fill('').map((val: any) => (
-            <div className="w-[40px] h-[40px] bg-[#245a50] border-[1px] border-orange-600"></div>
+          {new Array(3).fill('').map((val: any, index: number) => (
+            <div
+              key={String(val + index)}
+              className="w-[40px] h-[40px] bg-[#245a50] border-[1px] border-orange-600"
+            ></div>
           ))}
         </div>
         <div className="w-[100%] h-[10px] bg-[#245a50] border-t-[1px] border-orange-700"></div>
@@ -37,8 +40,11 @@ const Menu = () => {
         onClick={() => layoutDispatch({ type: 'purple' })}
       >
         <div className="flex gap-2 mt-10">
-          {new Array(3).fill('').map((val: any) => (
-            <div className="w-[40px] h-[40px] bg-[#2d648e] rounded-[10px] cardBoxShaddowPurple  border-[1px] border-purple-500  "></div>
+          {new Array(3).fill('').map((val: any, index: number) => (
+            <div
+              key={String(val + index)}
+              className="w-[40px] h-[40px] bg-[#2d648e] rounded-[10px] cardBoxShaddowPurple  border-[1px] border-purple-500  "
+            ></div>
           ))}
         </div>
         <div className="w-[100%] h-[10px]  bg-[#2d648e] cardBoxShaddowPurple  border-t-[1px] border-purple-500  "></div>
