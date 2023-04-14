@@ -32,17 +32,17 @@ const Contact = () => {
     icon: `w-[2rem] h-[2rem] flex  items-center  justify-center font-bold text-[1.5rem] hover:bg-red-500  bg-red-600 text-white rounded-[5px]`,
     iconZoom: `text-[2rem] bg-green-600 hover:bg-green-400 text-white rounded-[5px] max_lg:hidden  `,
     btnDiv: `gap-2 flex `,
-    emailDiv: `  flex flex-wrap items-center justify-center h-[90%]       `,
-    textDiv: `w-[700px] h-[300px] bg-white rounded-[20px] generalBoxShaddow p-5 outline-none`,
+    emailDiv: `  flex flex-wrap items-center justify-center h-[90%] overflow-y-scroll py-5      `,
+    textDiv: `w-[700px] max_md:w-[90%] h-[300px] bg-white rounded-[20px] generalBoxShaddow p-5 outline-none`,
     form: `w-[100%] flex  flex-col items-center justify-center gap-5`,
-    topInputDiv: `flex flex-col w-[700px] gap-2 `,
+    topInputDiv: `flex flex-col w-[700px] max_md:w-[90%] gap-2 `,
     inputDiv: `flex bg-white rounded-[20px]  items-start py-2  items-center justify-around px-10 generalBoxShaddow`,
     input: `w-[90%] py-1 outline-none  `,
-    sendWrapper: `  gap-5  w-[700px] flex items-center justify-end px-1`,
-    sendBtn: `w-[14rem] flex items-center justify-between px-7 font-medium text-gray-500 hover:text-blue-400 bg-white py-2 rounded-[20px] generalBoxShaddow`,
-    bottomDivWrapper: `flex justify-around w-[500px] generalBoxShaddow p-2 py-[10px] bg-white  rounded-[20px] `,
+    sendWrapper: `  gap-5  max_md:flex-col max_md:w-[90%] w-[700px] flex items-center justify-end px-1`,
+    sendBtn: `w-[14rem] max_md:justify-center max_md:gap-9 max_md:w-[100%] max_md:text-[2rem] flex items-center justify-between px-7 font-medium text-gray-500 hover:text-blue-400 bg-white py-2 rounded-[20px] generalBoxShaddow`,
+    bottomDivWrapper: `flex max_md:w-[100%] max_md:flex-col max_md:justify-center max_md:items-start max_md:px-10 max_md:gap-5  justify-around w-[500px] generalBoxShaddow p-2 py-[10px] bg-white  rounded-[20px] `,
     bottomEmailDiv: `flex gap-2 text-[12px] text-gray-600 font-medium  `,
-    bottomParagraph: `generalBoxShaddow p-2 py-[10px] bg-white  rounded-[20px] w-[700px] flex items-center justify-between px-10`,
+    bottomParagraph: `generalBoxShaddow p-2 py-[10px] max_md:px-2 bg-white  rounded-[20px] max_md:w-[90%]    w-[700px] flex items-center justify-between px-10`,
   }
   return (
     <div className={style.mainDiv}>
@@ -92,14 +92,13 @@ const Contact = () => {
               </div>
             </div>
             <div contentEditable={true} className={style.textDiv}>
-              Write Me...
+              Write....
             </div>
             <div className={style.sendWrapper}>
               <div className={style.bottomDivWrapper}>
                 <div className={style.bottomEmailDiv}>
                   <SiGmail className="text-red-600 text-[1.3rem]" />
                   <p className="outline-none" contentEditable="true">
-                    {' '}
                     g.kutateli@gmail.com
                   </p>
                 </div>
@@ -112,13 +111,13 @@ const Contact = () => {
               </div>
 
               <m.button whileHover={{ scale: 1.1 }} className={style.sendBtn}>
-                <RiMailSendLine className="text-blue-500 text-[1.2rem]" />
+                <RiMailSendLine className="text-blue-500 text-[1.2rem] max_md:text-[2rem]" />
                 <p>Send It In My way</p>
               </m.button>
             </div>
             <div className={style.bottomParagraph}>
-              <FcInfo className="text-[1.7rem]" />
-              <p className="text-[1.2rem] font-medium flex gap-1 pr-10 text-gray-400">
+              <FcInfo className="text-[1.7rem] max_md:text-[3rem]" />
+              <p className="text-[1.2rem] font-medium flex gap-1 max_md:text-[13px] max_md:p-0 max_md:gap-0 max_md:flex-col pr-10 text-gray-400">
                 More Contact Infomration Can Be Found On
                 <Link className="text-blue-400 font-bold" to="/about">
                   About Page
