@@ -16,7 +16,7 @@ import {
   ProjectItemType,
   Project,
 } from '../DataUtils'
-import { collection, onSnapshot, query } from 'firebase/firestore'
+import { addDoc, collection, onSnapshot, query } from 'firebase/firestore'
 type Action = {
   type: string
   payload: string
@@ -49,6 +49,14 @@ type Cell = {
   layoutDispatch: React.Dispatch<layOutAction>
   layoutState: layOutState
   dragTurnOff: boolean
+  setEmail: React.Dispatch<React.SetStateAction<string>>
+  setTopic: React.Dispatch<React.SetStateAction<string>>
+  setMainMessage: React.Dispatch<React.SetStateAction<string>>
+  EmailHanndler: (e: React.FormEvent) => void
+  contactError: string
+  email: string
+  topic: string
+  mainMessage: string
 }
 
 const PortfolioContext = createContext<Cell | null>(null)
@@ -172,7 +180,39 @@ export const PortfolioContextProvider = ({
       setDragTurnOff(true)
     }
   }, [width])
-
+  // contact page sending info to firebase
+  const [email, setEmail] = useState<string>('')
+  const [topic, setTopic] = useState<string>('')
+  const [mainMessage, setMainMessage] = useState<string>('')
+  const [contactError, setContactError] = useState<string>('')
+  const EmailHanndler = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (email !== '' && topic !== '' && mainMessage !== '') {
+      try {
+        await addDoc(collection(db, 'emails'), {
+          date: new Date(),
+          email,
+          topic,
+          mainMessage,
+        })
+        setContactError('Email has been sent')
+        setEmail('')
+        setTopic('')
+        setMainMessage('Write....')
+        setTimeout(() => {
+          setContactError('')
+        }, 5000)
+      } catch (error) {
+        console.log(error)
+        console.error(error)
+      }
+    } else {
+      setContactError('Please fill out all the form fields')
+      setTimeout(() => {
+        setContactError('')
+      }, 5000)
+    }
+  }
   return (
     <PortfolioContext.Provider
       value={{
@@ -191,6 +231,14 @@ export const PortfolioContextProvider = ({
         layoutState,
         layoutDispatch,
         dragTurnOff,
+        setEmail,
+        setTopic,
+        setMainMessage,
+        contactError,
+        EmailHanndler,
+        email,
+        topic,
+        mainMessage,
       }}
     >
       {children}

@@ -12,6 +12,15 @@ const Contact = () => {
     skills,
     layoutState,
     dragTurnOff,
+
+    setEmail,
+    setTopic,
+    setMainMessage,
+    contactError,
+    EmailHanndler,
+    email,
+    topic,
+    mainMessage,
   } = UsePortfolioContext()
 
   const [zoom, setZoom] = React.useState<boolean>(false)
@@ -33,7 +42,7 @@ const Contact = () => {
     iconZoom: `text-[2rem] bg-green-600 hover:bg-green-400 text-white rounded-[5px] max_lg:hidden  `,
     btnDiv: `gap-2 flex `,
     emailDiv: `  flex flex-wrap items-center justify-center h-[90%] overflow-y-scroll py-5      `,
-    textDiv: `w-[700px] max_md:w-[90%] h-[300px] bg-white rounded-[20px] generalBoxShaddow p-5 outline-none`,
+    textDiv: `  resize-none w-[700px] max_md:w-[90%] h-[300px] bg-white rounded-[20px] generalBoxShaddow p-5 outline-none`,
     form: `w-[100%] flex  flex-col items-center justify-center gap-5`,
     topInputDiv: `flex flex-col w-[700px] max_md:w-[90%] gap-2 `,
     inputDiv: `flex bg-white rounded-[20px]  items-start py-2  items-center justify-around px-10 generalBoxShaddow`,
@@ -77,6 +86,8 @@ const Contact = () => {
               <div className={style.inputDiv}>
                 <SiGmail className="text-red-600 text-[1.3rem]" />
                 <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className={style.input}
                   type="email"
                   placeholder="Email"
@@ -85,15 +96,22 @@ const Contact = () => {
               <div className={style.inputDiv}>
                 <MdTopic className="text-yellow-500 text-[1.5rem]" />
                 <input
+                  value={topic}
+                  onChange={(e) => setTopic(e.target.value)}
                   className={style.input}
                   type="text"
                   placeholder="Topic"
                 />
               </div>
             </div>
-            <div contentEditable={true} className={style.textDiv}>
+            <textarea
+              value={mainMessage}
+              onChange={(e) => setMainMessage(e.target.value)}
+              contentEditable={true}
+              className={style.textDiv}
+            >
               Write....
-            </div>
+            </textarea>
             <div className={style.sendWrapper}>
               <div className={style.bottomDivWrapper}>
                 <div className={style.bottomEmailDiv}>
@@ -110,7 +128,11 @@ const Contact = () => {
                 </div>
               </div>
 
-              <m.button whileHover={{ scale: 1.1 }} className={style.sendBtn}>
+              <m.button
+                onClick={(e) => EmailHanndler(e)}
+                whileHover={{ scale: 1.1 }}
+                className={style.sendBtn}
+              >
                 <RiMailSendLine className="text-blue-500 text-[1.2rem] max_md:text-[2rem]" />
                 <p>Send It In My way</p>
               </m.button>
@@ -124,6 +146,16 @@ const Contact = () => {
                 </Link>
               </p>
             </div>
+            {contactError !== '' && (
+              <p className="absolute text-red-500 font-bold text-[2rem]">
+                {contactError}
+              </p>
+            )}
+            {contactError !== '' && (
+              <p className="absolute text-green-300 font-bold text-[2rem]">
+                {contactError}
+              </p>
+            )}
           </form>
         </div>
       </m.section>
