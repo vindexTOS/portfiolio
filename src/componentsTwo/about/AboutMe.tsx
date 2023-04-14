@@ -51,13 +51,13 @@ const AboutMe = () => {
     icon: `w-[2rem] h-[2rem] flex  items-center  justify-center font-bold text-[1.5rem] hover:bg-red-500  bg-red-600 text-white rounded-[5px]`,
     iconZoom: `text-[2rem] bg-green-600 hover:bg-green-400 text-white rounded-[5px] max_lg:hidden  `,
     btnDiv: `gap-2 flex `,
-    photoDiv: `w-[500px] h-[720px]  max_md:w-[100%]  ${
+    photoDiv: `w-[500px]  h-[600px]  max_md:w-[100%]  ${
       layoutState.greenLayout
-        ? 'bg-white '
+        ? ' bg-white '
         : layoutState.purpleLayOut
         ? 'bg-gray-200 bg-opacity-30'
         : ''
-    }  h-[93%] flex flex-col  justify-center  items-center gap-5 py-4 `,
+    }    flex flex-col  justify-center   items-center gap-5 py-4 `,
     img: `w-[270px] h-[270px]`,
     infoBtn: `flex items-center text-[1rem]  font-bold w-[270px] gap-5 outline outline-[1px] p-2 py-3 cursor-pointer  ${
       layoutState.greenLayout
@@ -255,8 +255,10 @@ const AboutMe = () => {
                     : ''
                 } `}
               >
-                {portfolioData.InreleventInfo.map((val: any) => (
-                  <li className="flex items-center gap-2 ">{val.point}</li>
+                {portfolioData.InreleventInfo.map((val: any, index: number) => (
+                  <li key={index} className="flex items-center gap-2 ">
+                    {val.point}
+                  </li>
                 ))}
               </ol>
             </div>

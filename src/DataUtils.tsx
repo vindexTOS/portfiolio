@@ -30,26 +30,24 @@ export const portfolioData = {
     I am a self-taught React developer. As a passionate learner and
     problem solver, I taught myself how to code and have been developing
     web applications using React ever since. I have a strong
-    understanding of the React ecosystem and enjoy creating responsive
-    and user-friendly interfaces. I believe that my dedication to
-    learning and my ability to think critically allow me to tackle
-    complex problems. On this website, you will find examples of my
+    understanding of the React ecosystem and enjoy creating complex features for website. I have really strong grasp of basicis with allows me to learn new technology really fast. On this website, you will find examples of my
     work, including some of the projects I have developed using React. I
     am constantly learning and expanding my skillset, and I am excited
     about the opportunity to collaborate with other developers and
-    businesses. Thank you for taking the time to visit my portfolio
-    website, and I look forward to the opportunity to work with you!`,
+    businesses. `,
   InreleventInfo: [
-    { point: `I Have A Bachelor in Agricultural Science` },
-    { point: `I Am Welder As A Trade ` },
     {
-      point: `My Name Is Giorgi And I Believe In Fitness...`,
+      point: `I have a Bachelor in Agricultural Science... I am interested in permaculture, one of my life gole is to have my own food forest and permaculture garden `,
     },
     {
-      point: ` Weight Lifting Is One Of The Most I Important Passions In My Life`,
+      point: `I am welder as a trade, I like building stuff in real life as much as i like building web projects here,anywhere from squat racks to hand made knives, i am intrested in making everything `,
     },
     {
-      point: `I Have Some Bit Of Knowledge In Video Editing And Photoshop`,
+      point: `My Name Is Giorgi And I Believe In Fitness... Weight lifting is one of the most important passions in my life, and im also obsessed with nutrition and human diets,my favorite book about the subject is  nutrition and physical degeneration by dr Weston A. Price `,
+    },
+
+    {
+      point: `I have some bit of knowledge in video editing And photoshop `,
     },
   ],
 }

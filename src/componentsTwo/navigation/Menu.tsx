@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion as m } from 'framer-motion'
 import { UsePortfolioContext } from '../../context/PortfolioContext'
+import { Link } from 'react-router-dom'
 const Menu = () => {
   const { dropOutMenu, layoutDispatch, layoutState } = UsePortfolioContext()
   const style = {
@@ -21,6 +22,18 @@ const Menu = () => {
       animate={{ x: dropOutMenu ? 0 : -400 }}
       className={style.section}
     >
+      <h1 className="absolute z-10 text-center mb-[13rem] text-[2rem] text-red-500 font-medium blacktextshaddow ">
+        Because of netlfy's static nature this feature is not working on this
+        domane{' '}
+        <Link
+          className="text-blue-300"
+          target="_blank"
+          to="https://github.com/vindexTOS/portfiolio"
+        >
+          Check This Portfolio On Git Hub
+        </Link>
+      </h1>
+
       <div
         className={style.layout1}
         onClick={() => layoutDispatch({ type: 'green' })}

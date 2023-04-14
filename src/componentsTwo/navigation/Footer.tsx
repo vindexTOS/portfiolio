@@ -10,7 +10,7 @@ import analytics from '../../assets/icons/analytics.png'
 import computer from '../../assets/icons/computer.png'
 import idcard from '../../assets/icons/id-card.png'
 import { useLocation } from 'react-router-dom'
-
+import gmail from '../../assets/icons/gmail.png'
 const Footer = () => {
   const [iconImg, setIconImg] = useState<boolean>(false)
   const {
@@ -115,6 +115,7 @@ const Footer = () => {
           title="Skills"
           link="skills"
         />
+        <OptionsDiv img={gmail} title="Contacts" link="/contact" />
       </div>
     </footer>
   )

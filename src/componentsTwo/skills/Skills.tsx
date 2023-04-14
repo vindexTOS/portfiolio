@@ -28,7 +28,7 @@ const Skills = () => {
     icon: `w-[2rem] h-[2rem] flex  items-center  justify-center font-bold text-[1.5rem] hover:bg-red-500  bg-red-600 text-white rounded-[5px]`,
     iconZoom: `text-[2rem] bg-green-600 hover:bg-green-400 text-white rounded-[5px] max_lg:hidden  `,
     btnDiv: `gap-2 flex `,
-    skillsDiv: ` flex flex-wrap items-center justify-center w-[100%] h-[93%] py-10 px-20 max_sm:p-0 gap-20  max_sm:gap-10 max_sm:h-[90%]  overflow-y-scroll `,
+    skillsDiv: ` flex flex-wrap items-center justify-center w-[100%] h-[90%] py-10 px-20 max_sm:p-0 gap-20  max_sm:gap-10 max_sm:h-[90%]  overflow-y-scroll `,
     singleSkill: `flex flex-col items-center justify-center max_sm:w-[100px] gap-2  `,
     img: `w-[100px] h-[100px] max_sm:w-[40px] max_sm:h-[40px]`,
     imgDiv: `rounded-[50%] w-[180px] h-[180px] max_sm:w-[80px] max_sm:h-[80px]  bg-opacity-5  flex items-center justify-center`,

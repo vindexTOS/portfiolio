@@ -77,11 +77,11 @@ export const PortfolioContextProvider = ({
       })
       setProjectsData([...projectsData, ...data])
     })
-    console.log(projectsData)
+    // console.log(projectsData)
     return () => unsub()
   }, [])
   useEffect(() => {
-    console.log(projectsData)
+    // console.log(projectsData)
   }, [projectsData])
   // projects
 
