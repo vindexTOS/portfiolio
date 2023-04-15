@@ -134,7 +134,7 @@ const Contact = () => {
                 className={style.sendBtn}
               >
                 <RiMailSendLine className="text-blue-500 text-[1.2rem] max_md:text-[2rem]" />
-                <p>Send It In My way</p>
+                <p>Send It On My way</p>
               </m.button>
             </div>
             <div className={style.bottomParagraph}>

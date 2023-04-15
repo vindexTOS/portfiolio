@@ -22,7 +22,7 @@ const Menu = () => {
       animate={{ x: dropOutMenu ? 0 : -400 }}
       className={style.section}
     >
-      <h1 className="absolute z-10 text-center mb-[13rem] text-[2rem] text-red-500 font-medium blacktextshaddow ">
+      <h1 className="absolute z-10 text-center mb-[13rem] text-[2rem] text-red-500 font-medium blacktextshaddow  max_sm:text-[1.2rem]">
         Because of netlfy's static nature this feature is not working on this
         domane{' '}
         <Link

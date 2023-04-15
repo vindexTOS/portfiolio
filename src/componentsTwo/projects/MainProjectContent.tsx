@@ -14,7 +14,7 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
     projectState,
     layoutState,
   } = UsePortfolioContext()
-  const [hideFolders, setHideFolders] = useState<boolean>(false)
+  const [hideFolders, setHideFolders] = useState<boolean>(true)
   const style = {
     mainContent: ` flex w-[100%] h-[90%] p-2 gap-5   justify-between  max_md:flex-col `,
     folders: `w-[400px] max_md:w-[100%] ${
@@ -75,12 +75,13 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
             return (
               <div
                 key={index}
-                onClick={() =>
+                onClick={() => {
                   projectDispatch({
                     type: 'id',
                     payload: val.id,
-                  })
-                }
+                  }),
+                    setHideFolders(true)
+                }}
                 className={`hover:bg-gray-200 w-[100%] text-gray-400  h-[3rem] flex  folderFont items-center text-[1rem] gap-2 cursor-pointer px-4 ${
                   projectState.productID === val.id && 'bg-gray-200  '
                 }`}
