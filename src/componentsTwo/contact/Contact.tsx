@@ -48,7 +48,7 @@ const Contact = () => {
     inputDiv: `flex bg-white rounded-[20px]  items-start py-2  items-center justify-around px-10 generalBoxShaddow`,
     input: `w-[90%] py-1 outline-none  `,
     sendWrapper: `  gap-5  max_md:flex-col max_md:w-[90%] w-[700px] flex items-center justify-end px-1`,
-    sendBtn: `w-[14rem] max_md:justify-center max_md:gap-9 max_md:w-[100%] max_md:text-[2rem] flex items-center justify-between px-7 font-medium text-gray-500 hover:text-blue-400 bg-white py-2 rounded-[20px] generalBoxShaddow`,
+    sendBtn: `w-[14rem] max_sm:w-[310px]  max_md:justify-center max_md:gap-9 max_md:w-[100%] max_md:text-[2rem] flex items-center justify-between px-7 font-medium text-gray-500 hover:text-blue-400 bg-white py-2 rounded-[20px] generalBoxShaddow`,
     bottomDivWrapper: `flex max_md:w-[100%] max_md:flex-col max_md:justify-center max_md:items-start max_md:px-10 max_md:gap-5  justify-around w-[500px] generalBoxShaddow p-2 py-[10px] bg-white  rounded-[20px] `,
     bottomEmailDiv: `flex gap-2 text-[12px] text-gray-600 font-medium  `,
     bottomParagraph: `generalBoxShaddow p-2 py-[10px] max_md:px-2 bg-white  rounded-[20px] max_md:w-[90%]    w-[700px] flex items-center justify-between px-10`,
@@ -133,8 +133,8 @@ const Contact = () => {
                 whileHover={{ scale: 1.1 }}
                 className={style.sendBtn}
               >
-                <RiMailSendLine className="text-blue-500 text-[1.2rem] max_md:text-[2rem]" />
-                <p>Send It On My way</p>
+                <RiMailSendLine className="text-blue-500 text-[1.2rem]  max_sm:text-[1.5rem] max_md:text-[2rem]" />
+                <p className="max_sm:text-[16px]">Send It On My way</p>
               </m.button>
             </div>
             <div className={style.bottomParagraph}>
