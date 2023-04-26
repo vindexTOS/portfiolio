@@ -6,6 +6,7 @@ import Skills from './componentsTwo/skills/Skills'
 import Projects from './componentsTwo/projects/Projects'
 import ProjectDiv from './componentsTwo/projects/ProjectDiv'
 import Contact from './componentsTwo/contact/Contact'
+import Blog from './componentsTwo/blog/Blog'
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
           <Route path="skills" element={<Skills />} />
           <Route path="projects" element={<Projects />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="blog" element={<Blog />} />
         </Route>
       </Routes>
     </>

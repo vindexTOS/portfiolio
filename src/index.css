@@ -10,6 +10,13 @@
 .aboutParagraph {
   font-family: 'Kanit', sans-serif;
 }
+
+.displayGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 26rem));
+  gap: 50px;
+}
+
 .bg-img {
   background-image: url('./assets/background//background1.jpg');
 
