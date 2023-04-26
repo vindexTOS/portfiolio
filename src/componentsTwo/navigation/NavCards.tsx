@@ -40,8 +40,8 @@ const NavCards: FC<NavCardProsp> = ({ img, title, styling, link }) => {
   return (
     <div onClick={() => Navigate(link)} className={style.mainDiv}>
       <m.div
-        whileHover={{ scale: 0.9 }}
-        transition={{ duration: 0.5 }}
+        whileHover={{ scale: 0.92 }}
+        transition={{ duration: 0.2 }}
         className={style.content}
       >
         <img className={style.img} src={img} />

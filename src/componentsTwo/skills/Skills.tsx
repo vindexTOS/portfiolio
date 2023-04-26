@@ -32,7 +32,7 @@ const Skills = () => {
     singleSkill: `flex flex-col items-center justify-center max_sm:w-[100px] gap-2  `,
     img: `w-[100px] h-[100px] max_sm:w-[40px] max_sm:h-[40px]`,
     imgDiv: `rounded-[50%] w-[180px] h-[180px] max_sm:w-[80px] max_sm:h-[80px]  bg-opacity-5  flex items-center justify-center`,
-    skillHeader: `text-[1.2rem] font-bold text-gray-600`,
+    skillHeader: `text-[1.2rem] font-bold text-gray-600  max_sm:text-[14px]`,
   }
   return (
     <div className={style.mainDiv}>
