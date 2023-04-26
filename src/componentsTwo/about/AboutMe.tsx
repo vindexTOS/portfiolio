@@ -144,7 +144,7 @@ const AboutMe = () => {
                 </div>
               </div>
               {InfoData.map((val: any) => (
-                <div key={String(val)} className={style.infoBtn}>
+                <div key={String(val.link)} className={style.infoBtn}>
                   {val.icon}
                   <Link
                     target="_blank"

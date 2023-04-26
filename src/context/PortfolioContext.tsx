@@ -5,6 +5,7 @@ import React, {
   useState,
   useReducer,
   useEffect,
+  Reducer,
 } from 'react'
 import { db } from '../firebase/firebase'
 import { useNavigate } from 'react-router-dom'
@@ -57,6 +58,9 @@ type Cell = {
   email: string
   topic: string
   mainMessage: string
+  blogData: any | unknown
+  blogId: string
+  blogPostNav: (id: string) => void
 }
 
 const PortfolioContext = createContext<Cell | null>(null)
@@ -80,9 +84,9 @@ export const PortfolioContextProvider = ({
     // console.log(projectsData)
     return () => unsub()
   }, [])
-  useEffect(() => {
-    // console.log(projectsData)
-  }, [projectsData])
+  // useEffect(() => {
+  //   // console.log(projectsData)
+  // }, [projectsData])
   // projects
 
   const aboutRef = useRef(null)
@@ -213,6 +217,32 @@ export const PortfolioContextProvider = ({
       }, 5000)
     }
   }
+
+  // taking blog info from firebase
+
+  // console.log(projectsData)
+  const [blogData, setBlogData] = useState<any | unknown>([])
+  useEffect(() => {
+    if (location.pathname === '/blog') {
+      console.log('blog')
+      const q = query(collection(db, 'blog'))
+      const unsub = onSnapshot(q, (querrSnapShot) => {
+        let data: any = []
+        querrSnapShot.forEach((doc: any) => {
+          data.push({ ...doc.data(), id: doc.id })
+        })
+        setBlogData(data)
+      })
+      return () => unsub()
+    }
+    console.log(blogData)
+  }, [location])
+  // blog post navigation
+
+  const [blogId, setBlogId] = useState<string>('')
+  const blogPostNav = (id: string) => {
+    setBlogId(id)
+  }
   return (
     <PortfolioContext.Provider
       value={{
@@ -239,6 +269,9 @@ export const PortfolioContextProvider = ({
         email,
         topic,
         mainMessage,
+        blogData,
+        blogId,
+        blogPostNav,
       }}
     >
       {children}

@@ -15,10 +15,10 @@ const NavCards: FC<NavCardProsp> = ({ img, title, styling, link }) => {
   const style = {
     mainDiv: `   ${
       navRelocation
-        ? 'w-[370px] h-[320px] max_md:h-[220px]     max_md:w-[320px]  max_sm:h-[180px]    max_smm1:w-[160px]     max_smm1:h-[160px]  flex items-center justify-center relative'
+        ? 'w-[370px] h-[320px] max_md:h-[220px]      max_md:w-[320px]  max_sm:h-[180px]    max_smm1:w-[160px]     max_smm1:h-[160px]  flex items-center justify-center relative'
         : ''
     }    `,
-    content: ` gap-2 items-center justify-center max_sm:h-[130px] max_smm1:rounded-[50%]  max_smm1:h-[150px] max_smm1:w-[150px] flex flex-col  ${
+    content: ` gap-2 items-center rounded-[50px] justify-center max_sm:h-[130px] max_smm1:rounded-[50%]  max_smm1:h-[150px] max_smm1:w-[150px] flex flex-col  ${
       layoutState.greenLayout
         ? 'bg-[#245a50] boxShaddow text-white'
         : layoutState.purpleLayOut

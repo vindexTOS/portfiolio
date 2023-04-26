@@ -2,6 +2,7 @@ import React from 'react'
 import { MdZoomInMap, MdZoomOutMap } from 'react-icons/md'
 import { motion as m } from 'framer-motion'
 import { UsePortfolioContext } from '../../context/PortfolioContext'
+import BlogMain from './BlogMain'
 function Blog() {
   const {
     CloseWindow,
@@ -35,7 +36,7 @@ function Blog() {
         className={style.section}
       >
         <div className={style.topDiv}>
-          <h1 className={style.header}>Tools I Use</h1>
+          <h1 className={style.header}>Blog</h1>
           <div className={style.btnDiv}>
             <button className={style.iconZoom}>
               {zoom ? (
@@ -49,7 +50,8 @@ function Blog() {
             </button>
           </div>
         </div>
-        <div className={style.blogDiv}></div>
+
+        <BlogMain />
       </m.section>
     </div>
   )
