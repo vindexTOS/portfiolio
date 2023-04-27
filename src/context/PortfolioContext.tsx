@@ -59,8 +59,10 @@ type Cell = {
   topic: string
   mainMessage: string
   blogData: any | unknown
+  mappedBlogData: any | unknown
   blogId: string
   blogPostNav: (id: string) => void
+  FilterBlogData: (title: string) => void
 }
 
 const PortfolioContext = createContext<Cell | null>(null)
@@ -222,26 +224,46 @@ export const PortfolioContextProvider = ({
 
   // console.log(projectsData)
   const [blogData, setBlogData] = useState<any | unknown>([])
-  useEffect(() => {
+  const [mappedBlogData, setMappedBlogData] = useState<any | unknown>([])
+  const DataPullerFireBase = (
+    setData: React.Dispatch<React.SetStateAction<any | unknown>>,
+    dataBaseTitle: string,
+  ) => {
     if (location.pathname === '/blog') {
       console.log('blog')
-      const q = query(collection(db, 'blog'))
+      const q = query(collection(db, dataBaseTitle))
       const unsub = onSnapshot(q, (querrSnapShot) => {
         let data: any = []
         querrSnapShot.forEach((doc: any) => {
           data.push({ ...doc.data(), id: doc.id })
         })
-        setBlogData(data)
+        setData(data)
       })
       return () => unsub()
     }
+  }
+  useEffect(() => {
+    DataPullerFireBase(setBlogData, 'blog')
+
     console.log(blogData)
   }, [location])
+  useEffect(() => {
+    setMappedBlogData(blogData)
+  }, [blogData])
   // blog post navigation
 
   const [blogId, setBlogId] = useState<string>('')
   const blogPostNav = (id: string) => {
     setBlogId(id)
+    console.log(id)
+  }
+  const FilterBlogData = (title: string) => {
+    if (title === 'blog') {
+      setMappedBlogData(blogData)
+    } else {
+      let newBlog = blogData.filter((val: any) => val.type === title)
+      setMappedBlogData(newBlog)
+    }
   }
   return (
     <PortfolioContext.Provider
@@ -272,6 +294,8 @@ export const PortfolioContextProvider = ({
         blogData,
         blogId,
         blogPostNav,
+        mappedBlogData,
+        FilterBlogData,
       }}
     >
       {children}

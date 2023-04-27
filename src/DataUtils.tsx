@@ -117,7 +117,7 @@ export const skills: SkillDataType = [
 ]
 export const Project: ProjectItemType[] = [
   {
-    title: 'Ranger App',
+    title: 'Fittness APP ',
     dec: `This app is packed with features, app helps users achieve their fitness goals in a personalized and fun way.' The app calculates users' BMI, age, and health status to create a personalized exercise plan. The app also offers progress tracking and statistical analysis, so users can see their progress over time. To keep users motivated, the app has a rewards system that rewards users for completing challenges. The app allows users to register and sign in to Firebase, and users can change their name and profile picture. With plans to include features such as user comparison statistics, this app is designed to change the way people get fit and stay motivated towards their goals.`,
     link: `https://ranger-app.netlify.app/`,
     git: `https://github.com/vindexTOS/ranger-app`,
