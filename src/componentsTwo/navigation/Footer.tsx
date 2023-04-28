@@ -115,7 +115,9 @@ const Footer = () => {
           title="Skills"
           link="skills"
         />
-        <OptionsDiv img={gmail} title="Contacts" link="contact" />
+        <div className="max_sm:hidden">
+          <OptionsDiv img={gmail} title="Contacts" link="contact" />
+        </div>
       </div>
     </footer>
   )

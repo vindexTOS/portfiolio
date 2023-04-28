@@ -51,7 +51,7 @@ const Contact = () => {
     sendBtn: `w-[14rem] gap-2 max_sm:w-[310px]  max_md:justify-center max_md:gap-9 max_md:w-[100%] max_md:text-[2rem] flex items-center justify-between px-7 font-medium text-gray-500 hover:text-blue-400 bg-white py-2 rounded-[20px] generalBoxShaddow`,
     bottomDivWrapper: `flex max_md:w-[100%] max_md:flex-col max_md:justify-center max_md:items-start max_md:px-10 max_md:gap-5  justify-around w-[500px] generalBoxShaddow p-2 py-[10px] bg-white  rounded-[20px] `,
     bottomEmailDiv: `flex gap-2 text-[12px] text-gray-600 font-medium  `,
-    bottomParagraph: `generalBoxShaddow p-2 py-[10px] max_md:px-2 bg-white  rounded-[20px] max_md:w-[90%]    w-[700px] flex items-center justify-between px-10`,
+    bottomParagraph: `generalBoxShaddow  p-2 py-[10px] max_md:px-2 bg-white  rounded-[20px] max_md:w-[90%]    w-[700px] flex items-center justify-around px-10`,
   }
   return (
     <div className={style.mainDiv}>
@@ -116,13 +116,13 @@ const Contact = () => {
               <div className={style.bottomDivWrapper}>
                 <div className={style.bottomEmailDiv}>
                   <SiGmail className="text-red-600 text-[1.3rem]" />
-                  <p className="outline-none" contentEditable="true">
+                  <p className="outline-none select-text ">
                     g.kutateli@gmail.com
                   </p>
                 </div>
                 <div className={style.bottomEmailDiv}>
                   <SiGmail className="text-red-600 text-[1.3rem]" />
-                  <p className="outline-none" contentEditable="true">
+                  <p className="outline-none select-text ">
                     giorgikutateladze1998@gmail.com
                   </p>
                 </div>
@@ -140,8 +140,8 @@ const Contact = () => {
               </m.button>
             </div>
             <div className={style.bottomParagraph}>
-              <FcInfo className="text-[1.7rem] max_md:text-[3rem]" />
-              <p className="text-[1.2rem] font-medium flex gap-1 max_md:text-[13px] max_md:p-0 max_md:gap-0 max_md:flex-col pr-10 text-gray-400">
+              <FcInfo className="text-[1.7rem] max_md:text-[3rem] " />
+              <p className="text-[1.2rem] font-medium flex  gap-1 max_md:text-[13px] max_md:p-0 max_md:gap-0 max_md:flex-col pr-10 text-gray-400">
                 More Contact Infomration Can Be Found On
                 <Link className="text-blue-400 font-bold" to="/about">
                   About Page

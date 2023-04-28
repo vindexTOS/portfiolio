@@ -14,7 +14,7 @@ const Menu = () => {
         : layoutState.purpleLayOut
         ? 'bg-[#2d648e]  menuBoxShaddowPurple rounded-[16px] '
         : ' '
-    }  w-[380px] h-[350px] ml-1 bottom-20 left-0  absolute z-10 flex flex-col items-center justify-start py-5  `,
+    }  w-[350px] h-[350px] ml-1 bottom-20 left-0  absolute z-10 flex flex-col items-center justify-start py-5  `,
 
     layout1: `w-[44%] h-[120px] outline outline-[1px] outline-orange-600   bg-img  flex  flex-col items-center justify-between hover:outline-orange-300 cursor-pointer`,
     layout2: `w-[44%] h-[120px] outline outline-[1px]  outline-purple-500  bg-purple-img flex  flex-col items-center justify-between hover:outline-purple-300 cursor-pointer`,
