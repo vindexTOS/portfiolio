@@ -248,7 +248,7 @@ export const PortfolioContextProvider = ({
     console.log(blogData)
   }, [location])
   useEffect(() => {
-    setMappedBlogData(blogData)
+    setMappedBlogData(blogData.reverse())
   }, [blogData])
   // blog post navigation
 

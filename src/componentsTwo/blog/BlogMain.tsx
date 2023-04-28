@@ -33,14 +33,14 @@ function BlogMain() {
       menu ? ' absolute   pt-[3rem]  ' : 'max_lg:hidden  '
     }  `,
     blogPost: ` flex  justify-start flex-col  w-[100%] overflow-y-scroll h-[100%] gap-2 `,
-    menuIcon: `absolute text-[40px] cursor-pointer hover:text-gray-700 lg:hidden z-50   `,
+    menuIcon: `absolute text-[40px] text-gray-800 cursor-pointer hover:text-gray-700 lg:hidden z-50   `,
   }
 
   const NavLinks = ({ title, id }: { title: string; id: string }) => {
     return (
       <div
         onClick={() => {
-          FilterBlogData(id), blogPostNav(''), setMenu(!menu)
+          FilterBlogData(id), blogPostNav('')
         }}
         className="flex cursor-pointer gap-13 items-center px-10 hover:bg-gray-500 hover:text-white w-[250px] gap-5 text-[1.3rem] font-bold text-gray-500"
       >

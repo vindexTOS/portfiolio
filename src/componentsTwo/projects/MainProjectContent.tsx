@@ -16,7 +16,7 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
   } = UsePortfolioContext()
   const [hideFolders, setHideFolders] = useState<boolean>(true)
   const style = {
-    mainContent: ` flex w-[100%] h-[90%] p-2 gap-5   justify-between  max_md:flex-col `,
+    mainContent: ` flex w-[100%] h-[90%] p-2 gap-5    justify-between  max_md:flex-col `,
     folders: `w-[400px] max_md:w-[100%] ${
       layoutState.greenLayout
         ? 'bg-white '
