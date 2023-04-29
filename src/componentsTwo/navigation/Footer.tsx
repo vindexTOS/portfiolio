@@ -11,17 +11,19 @@ import computer from '../../assets/icons/computer.png'
 import idcard from '../../assets/icons/id-card.png'
 import { useLocation } from 'react-router-dom'
 import gmail from '../../assets/icons/gmail.png'
-import frustrated from '../../assets/icons/frustrated.png'
+import FooterUpdates from './FooterUpdates'
+import OptionsDiv from './FooterOptionDiv'
 const Footer = () => {
+  const context = UsePortfolioContext()
+  if (!context) {
+    return null
+  }
+
+  const { dropOutMenu, setDropOutMenu, Navigate, layoutState } = context
   const [iconImg, setIconImg] = useState<boolean>(false)
-  const {
-    dropOutMenu,
-    setDropOutMenu,
-    Navigate,
-    layoutState,
-  } = UsePortfolioContext()
+
   const style = {
-    footer: `w-[100vw] h-[72px] bottom-0 flex justify-between ${
+    footer: `w-[100vw] h-[72px] bottom-0 flex justify-between  items-center ${
       layoutState.greenLayout
         ? 'bg-[#245a50] boxShaddow'
         : layoutState.purpleLayOut
@@ -31,36 +33,6 @@ const Footer = () => {
     iconDiv: `flex items-center justify-center h-[100%] w-[5rem] rounded-[50%]   `,
     img: `w-[50px] cursor-pointer    ${iconImg && 'rotate-180'} `,
     options: `flex items-center justify-center   `,
-    currentInfo: `mr-10  flex items-center justify-center h-[100%]`,
-  }
-
-  const location = useLocation()
-  type OptionDivProps = {
-    img: string
-
-    title: string
-    link: string
-  }
-  const OptionsDiv: FC<OptionDivProps> = ({ img, title, link }) => {
-    return (
-      <div
-        onClick={() => Navigate(link)}
-        title={title}
-        className={`  ${
-          layoutState.greenLayout
-            ? 'hover:bg-green-800 hover:border-b-2 border-orange-600'
-            : layoutState.purpleLayOut
-            ? 'hover:bg-purple-800 hover:border-b-2 border-purple-400'
-            : ''
-        } w-[5rem] flex items-center justify-center h-[100%] cursor-pointer ${
-          layoutState.greenLayout
-            ? location.pathname === `/${link}` && 'bg-green-900 border-b-4'
-            : location.pathname === `/${link}` && 'bg-purple-900 border-b-4'
-        } `}
-      >
-        <img src={img} className={`w-[50px] cursor-pointer  `} />
-      </div>
-    )
   }
 
   return (
@@ -122,22 +94,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className={style.currentInfo}>
-        <img className={style.img} src={frustrated} />
-        <div>
-          {' '}
-          <h1 className="text-white font-bold text-[1.2rem]">
-            currently learning
-          </h1>
-          <div className="flex items-center justify-center gap-2">
-            <h1 className="text-green-500 font-bold text-[1.2rem]">Node.js</h1>
-            <img
-              className="w-[30px]"
-              src={`https://cdn-icons-png.flaticon.com/512/919/919825.png`}
-            />
-          </div>
-        </div>
-      </div>
+      <FooterUpdates />
     </footer>
   )
 }

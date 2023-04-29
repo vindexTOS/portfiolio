@@ -107,7 +107,6 @@ const Contact = () => {
             <textarea
               value={mainMessage}
               onChange={(e) => setMainMessage(e.target.value)}
-              contentEditable={true}
               className={style.textDiv}
             >
               Write....

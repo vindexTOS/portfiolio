@@ -62,9 +62,9 @@ const Skills = () => {
           </div>
         </div>
         <div className={style.skillsDiv}>
-          {skills.map((val: any) => {
+          {skills.map((val: any, i: number) => {
             return (
-              <div key={String(val.bgo)} className={style.singleSkill}>
+              <div key={String(val.bgo + i)} className={style.singleSkill}>
                 <m.div
                   whileHover={{ backgroundColor: `${val.color}` }}
                   transition={{ duration: 1 }}

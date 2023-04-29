@@ -26,7 +26,19 @@ type Action = {
 type State = {
   productID: string
 }
+type LearningData = {
+  img: string
+  title: string
+  color: string
+}
 
+type BlogDataType = {
+  dec: string
+  img: string
+  time: string
+  type: string
+  id: string
+}
 type layOutState = {
   greenLayout: boolean
   purpleLayOut: boolean
@@ -59,11 +71,12 @@ type Cell = {
   email: string
   topic: string
   mainMessage: string
-  blogData: any | unknown
-  mappedBlogData: any | unknown
+  blogData: BlogDataType[]
+  mappedBlogData: BlogDataType[]
   blogId: string
   blogPostNav: (id: string) => void
   FilterBlogData: (title: string) => void
+  learnStack: LearningData[]
 }
 
 const PortfolioContext = createContext<Cell | null>(null)
@@ -221,11 +234,15 @@ export const PortfolioContextProvider = ({
     }
   }
 
+  // learning stack setState data
+  const [learnStack, setLearnStack] = useState<LearningData[]>([])
+
   // taking blog info from firebase
 
   // console.log(projectsData)
-  const [blogData, setBlogData] = useState<any | unknown>([])
-  const [mappedBlogData, setMappedBlogData] = useState<any | unknown>([])
+
+  const [blogData, setBlogData] = useState<BlogDataType[]>([])
+  const [mappedBlogData, setMappedBlogData] = useState<BlogDataType[]>([])
   const DataPullerFireBase = (
     setData: React.Dispatch<React.SetStateAction<any | unknown>>,
     dataBaseTitle: string,
@@ -241,21 +258,26 @@ export const PortfolioContextProvider = ({
     })
     return () => unsub()
   }
+  // pulling data from firebase with function
   useEffect(() => {
     DataPullerFireBase(setBlogData, 'blog')
+    DataPullerFireBase(setLearnStack, 'learning-stack')
 
     console.log(blogData)
   }, [])
+
+  ///revesring blog data
   useEffect(() => {
     setMappedBlogData(blogData.reverse())
   }, [blogData])
   // blog post navigation
-
+  //filtering blog data
   const [blogId, setBlogId] = useState<string>('')
   const blogPostNav = (id: string) => {
     setBlogId(id)
     console.log(id)
   }
+  //blog data filtering by title and category
   const FilterBlogData = (title: string) => {
     if (title === 'blog') {
       setMappedBlogData(blogData)
@@ -264,6 +286,7 @@ export const PortfolioContextProvider = ({
       setMappedBlogData(newBlog)
     }
   }
+
   return (
     <PortfolioContext.Provider
       value={{
@@ -295,6 +318,7 @@ export const PortfolioContextProvider = ({
         blogPostNav,
         mappedBlogData,
         FilterBlogData,
+        learnStack,
       }}
     >
       {children}
