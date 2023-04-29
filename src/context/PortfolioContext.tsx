@@ -230,24 +230,22 @@ export const PortfolioContextProvider = ({
     setData: React.Dispatch<React.SetStateAction<any | unknown>>,
     dataBaseTitle: string,
   ) => {
-    if (location.pathname === '/blog') {
-      console.log('blog')
-      const q = query(collection(db, dataBaseTitle))
-      const unsub = onSnapshot(q, (querrSnapShot) => {
-        let data: any = []
-        querrSnapShot.forEach((doc: any) => {
-          data.push({ ...doc.data(), id: doc.id })
-        })
-        setData(data)
+    console.log('blog')
+    const q = query(collection(db, dataBaseTitle))
+    const unsub = onSnapshot(q, (querrSnapShot) => {
+      let data: any = []
+      querrSnapShot.forEach((doc: any) => {
+        data.push({ ...doc.data(), id: doc.id })
       })
-      return () => unsub()
-    }
+      setData(data)
+    })
+    return () => unsub()
   }
   useEffect(() => {
     DataPullerFireBase(setBlogData, 'blog')
 
     console.log(blogData)
-  }, [location])
+  }, [])
   useEffect(() => {
     setMappedBlogData(blogData.reverse())
   }, [blogData])

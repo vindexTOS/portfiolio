@@ -215,23 +215,17 @@ const AboutMe = () => {
                     : ''
                 }`}
               >
-                My ultimate goal is to become a full-time web developer, as I
-                have a passion for this job and I'm willing to put in the hard
-                work to make it happen. I'm currently seeking employment
-                opportunities where I can continue to grow and develop my skills
-                in web development. In addition to my professional goals, I'm
-                also working on a side project that's very important to me -
-                developing my own fitness app. I've already created a beta
-                version of the app, which you can check out in the Projects
-                section of my portfolio. As I continue to build my skills and
-                experience in web development, my goal is to become an expert in
-                my field and continue to create innovative, Ultimately, my aim
-                is to become a full-stack developer. I have been primarily
-                focused on front-end development thus far, as I believe that one
-                who chases two rabbits catches neither. However, I am eager to
-                expand my skillset and knowledge in back-end development in
-                order to become a well-rounded developer capable of creating
-                robust and efficient applications from end to end.
+                My ultimate goal is to become a full stack web developer, which
+                is why I recently started learning back end development using
+                Node.js. I'm passionate about enhancing my skills and expertise
+                in this area, and I'm committed to putting in the time and
+                effort to achieve my goals. Looking ahead, I'm about to learn
+                React Native and leverage that knowledge to create a big scale
+                fitness app, i have already made beta version of it on React.js
+                . I'm driven by a strong desire to keep learning and growing,
+                and I'm confident that I have what it takes to succeed as a
+                developer. I'm eager to continue my journey and see where it
+                takes me!
               </p>
             </div>
             <div className={style.InreleventDiv}>

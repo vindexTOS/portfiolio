@@ -11,6 +11,7 @@ import computer from '../../assets/icons/computer.png'
 import idcard from '../../assets/icons/id-card.png'
 import { useLocation } from 'react-router-dom'
 import gmail from '../../assets/icons/gmail.png'
+import frustrated from '../../assets/icons/frustrated.png'
 const Footer = () => {
   const [iconImg, setIconImg] = useState<boolean>(false)
   const {
@@ -20,7 +21,7 @@ const Footer = () => {
     layoutState,
   } = UsePortfolioContext()
   const style = {
-    footer: `w-[100vw] h-[72px] bottom-0 ${
+    footer: `w-[100vw] h-[72px] bottom-0 flex justify-between ${
       layoutState.greenLayout
         ? 'bg-[#245a50] boxShaddow'
         : layoutState.purpleLayOut
@@ -30,6 +31,7 @@ const Footer = () => {
     iconDiv: `flex items-center justify-center h-[100%] w-[5rem] rounded-[50%]   `,
     img: `w-[50px] cursor-pointer    ${iconImg && 'rotate-180'} `,
     options: `flex items-center justify-center   `,
+    currentInfo: `mr-10  flex items-center justify-center h-[100%]`,
   }
 
   const location = useLocation()
@@ -63,60 +65,77 @@ const Footer = () => {
 
   return (
     <footer className={style.footer}>
-      <div
-        className={style.iconDiv}
-        onClick={() => setDropOutMenu(!dropOutMenu)}
-      >
-        <m.img
-          onClick={() => setIconImg(!iconImg)}
-          animate={{ rotate: iconImg ? 180 : 0 }}
-          className={style.img}
-          src={
-            layoutState.greenLayout
-              ? shuriken
-              : layoutState.purpleLayOut
-              ? gear
-              : gear
-          }
-        />
+      <div className="flex">
+        <div
+          className={style.iconDiv}
+          onClick={() => setDropOutMenu(!dropOutMenu)}
+        >
+          <m.img
+            onClick={() => setIconImg(!iconImg)}
+            animate={{ rotate: iconImg ? 180 : 0 }}
+            className={style.img}
+            src={
+              layoutState.greenLayout
+                ? shuriken
+                : layoutState.purpleLayOut
+                ? gear
+                : gear
+            }
+          />
+        </div>
+        <div className={style.options}>
+          <OptionsDiv
+            img={
+              layoutState.greenLayout
+                ? PersonalInfo
+                : layoutState.purpleLayOut
+                ? idcard
+                : PersonalInfo
+            }
+            title="About Me"
+            link="about"
+          />
+          <OptionsDiv
+            img={
+              layoutState.greenLayout
+                ? ClipBoard
+                : layoutState.purpleLayOut
+                ? analytics
+                : ClipBoard
+            }
+            title="Projects"
+            link="projects"
+          />
+          <OptionsDiv
+            img={
+              layoutState.greenLayout
+                ? Skills2
+                : layoutState.purpleLayOut
+                ? computer
+                : Skills2
+            }
+            title="Skills"
+            link="skills"
+          />
+          <div className="max_sm:hidden">
+            <OptionsDiv img={gmail} title="Contacts" link="contact" />
+          </div>
+        </div>
       </div>
-
-      <div className={style.options}>
-        <OptionsDiv
-          img={
-            layoutState.greenLayout
-              ? PersonalInfo
-              : layoutState.purpleLayOut
-              ? idcard
-              : PersonalInfo
-          }
-          title="About Me"
-          link="about"
-        />
-        <OptionsDiv
-          img={
-            layoutState.greenLayout
-              ? ClipBoard
-              : layoutState.purpleLayOut
-              ? analytics
-              : ClipBoard
-          }
-          title="Projects"
-          link="projects"
-        />
-        <OptionsDiv
-          img={
-            layoutState.greenLayout
-              ? Skills2
-              : layoutState.purpleLayOut
-              ? computer
-              : Skills2
-          }
-          title="Skills"
-          link="skills"
-        />
-        <div className="max_sm:hidden">
-          <OptionsDiv img={gmail} title="Contacts" link="contact" />
+      <div className={style.currentInfo}>
+        <img className={style.img} src={frustrated} />
+        <div>
+          {' '}
+          <h1 className="text-white font-bold text-[1.2rem]">
+            currently learning
+          </h1>
+          <div className="flex items-center justify-center gap-2">
+            <h1 className="text-green-500 font-bold text-[1.2rem]">Node.js</h1>
+            <img
+              className="w-[30px]"
+              src={`https://cdn-icons-png.flaticon.com/512/919/919825.png`}
+            />
+          </div>
         </div>
       </div>
     </footer>
