@@ -38,6 +38,7 @@ type BlogDataType = {
   time: string
   type: string
   id: string
+  title: string
 }
 type layOutState = {
   greenLayout: boolean

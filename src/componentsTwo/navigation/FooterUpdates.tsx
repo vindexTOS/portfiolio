@@ -21,14 +21,14 @@ function FooterUpdates() {
       }
     }, 4000)
     return () => clearInterval(timeOut)
-  }, [index])
+  }, [index, learnStack])
 
   return (
     <div onClick={() => console.log(learnStack)} className={style.currentInfo}>
       <img className={style.img} src={frustrated} />
       <div>
         <h1 className="text-white font-bold text-[1.2rem]">
-          currently learning
+          Currently Learning
         </h1>
         <div className="flex items-center justify-center gap-2">
           <m.h1

@@ -23,7 +23,7 @@ const Footer = () => {
   const [iconImg, setIconImg] = useState<boolean>(false)
 
   const style = {
-    footer: `w-[100vw] h-[72px] bottom-0 flex justify-between  items-center ${
+    footer: `w-[100vw] h-[72px] bottom-0 flex justify-between    ${
       layoutState.greenLayout
         ? 'bg-[#245a50] boxShaddow'
         : layoutState.purpleLayOut
@@ -89,12 +89,14 @@ const Footer = () => {
             title="Skills"
             link="skills"
           />
-          <div className="max_sm:hidden">
+          <div className="max_sm:hidden h-[100%]">
             <OptionsDiv img={gmail} title="Contacts" link="contact" />
           </div>
         </div>
       </div>
-      <FooterUpdates />
+      <div className="h-[100%] flex items-center">
+        <FooterUpdates />
+      </div>
     </footer>
   )
 }

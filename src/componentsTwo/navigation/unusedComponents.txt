@@ -1,4 +1,4 @@
-{
+ 
   /* <h1 className="absolute z-10 text-center mb-[13rem] text-[2rem] text-red-500 font-medium blacktextshaddow  max_sm:text-[1.2rem]">
         Because of netlfy's static nature this feature is not working on this
         domane{' '}
@@ -10,9 +10,9 @@
           Check This Portfolio On Git Hub
         </Link>
       </h1> */
-}
+ 
 
-{
+ 
   /* <div
         className={style.layout1}
         onClick={() => layoutDispatch({ type: 'green' })}
@@ -41,4 +41,4 @@
         </div>
         <div className="w-[100%] h-[10px]  bg-[#2d648e] cardBoxShaddowPurple  border-t-[1px] border-purple-500  "></div>
       </div> */
-}
+ 

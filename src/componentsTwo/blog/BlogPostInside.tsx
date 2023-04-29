@@ -7,7 +7,7 @@ const BlogPostInside = () => {
     (val: any) => String(val.id) === String(blogId),
   )
   return (
-    <div className="bg-gray-100 h-[100%]     overflow-y-scroll mb-[4px] flex flex-col max_lg:justify-start max_lg:pb-20   items-center justify-center gap-5">
+    <div className="bg-gray-100 h-[100%]  pt-[34rem] max_sm:pt-0   overflow-y-scroll mb-[4px] flex flex-col max_lg:justify-start max_lg:pb-20   items-center justify-center gap-5">
       <div
         onClick={() => blogPostNav('')}
         className="w-[100%] max_lg:ml-20  text-[2rem] flex items-center text-center gap-2 cursor-pointer text-gray-800 hover:text-blue-500 font-light"
