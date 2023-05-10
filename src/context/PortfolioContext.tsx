@@ -17,6 +17,7 @@ import {
   skills,
   ProjectItemType,
   Project,
+  MainProjects,
 } from '../DataUtils'
 import { addDoc, collection, onSnapshot, query } from 'firebase/firestore'
 type Action = {
@@ -50,6 +51,8 @@ type layOutAction = {
 
 type Cell = {
   projectsData: ProjectItemType[]
+  mainProjectsData: ProjectItemType[]
+  miniProjects: ProjectItemType[]
   projectRef: React.MutableRefObject<null>
   aboutRef: React.MutableRefObject<null>
   navRef: (link: string) => void
@@ -89,6 +92,10 @@ export const PortfolioContextProvider = ({
 }) => {
   // getting data from fire base
   const [projectsData, setProjectsData] = useState<ProjectItemType[]>(Project)
+  const [mainProjectsData, setMainProjectsData] = useState<ProjectItemType[]>(
+    MainProjects,
+  )
+  const [miniProjects, setMiniProjects] = useState<ProjectItemType[]>(Project)
   useEffect(() => {
     const q = query(collection(db, 'portfolio-projects'))
     const unsub = onSnapshot(q, (querrySnapshot) => {
@@ -96,7 +103,7 @@ export const PortfolioContextProvider = ({
       querrySnapshot.forEach((doc: any) => {
         data.push({ ...doc.data(), id: doc.id })
       })
-      setProjectsData([...projectsData, ...data])
+      setProjectsData([...projectsData, ...mainProjectsData, ...data])
     })
     // console.log(projectsData)
     return () => unsub()
@@ -292,6 +299,8 @@ export const PortfolioContextProvider = ({
     <PortfolioContext.Provider
       value={{
         projectsData,
+        mainProjectsData,
+        miniProjects,
         projectRef,
         aboutRef,
         navRef,

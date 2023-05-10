@@ -73,6 +73,12 @@ export const skills: SkillDataType = [
     bgo: `rgba(97, 219, 251,  ${bgOpacity})`,
   },
   {
+    title: `Redux`,
+    icon: skillsData.redux,
+    color: `rgba(118, 74, 188,  ${bghover})`,
+    bgo: `rgba(118, 74, 188,  ${bgOpacity})`,
+  },
+  {
     title: `TailwindCss`,
     icon: skillsData.tailwind,
     color: `rgba(34, 133, 245,  ${bghover})`,
@@ -115,7 +121,8 @@ export const skills: SkillDataType = [
     bgo: `rgba(144, 17, 255,  ${bgOpacity})`,
   },
 ]
-export const Project: ProjectItemType[] = [
+
+export const MainProjects: ProjectItemType[] = [
   {
     title: 'Fittness APP ',
     dec: `This app is packed with features, app helps users achieve their fitness goals in a personalized and fun way.' The app calculates users' BMI, age, and health status to create a personalized exercise plan. The app also offers progress tracking and statistical analysis, so users can see their progress over time. To keep users motivated, the app has a rewards system that rewards users for completing challenges. The app allows users to register and sign in to Firebase, and users can change their name and profile picture. With plans to include features such as user comparison statistics, this app is designed to change the way people get fit and stay motivated towards their goals.`,
@@ -177,6 +184,9 @@ export const Project: ProjectItemType[] = [
     id: 'pc-market-app',
     personal: `My second significant project was developing a PC market app inspired by the Georgian website mymarket.ge ( Read more about it on down below). Despite being more complex and extensive than the Ranger Fitness App, I completed it in just three weeks. The code is much cleaner and more dynamic, and I learned a lot about Firebase. This was also my first project using TypeScript, making it a valuable learning experience.,Overall, building the PC market app was a significant milestone in my coding journey, and it has been instrumental in developing my skills as a developer.`,
   },
+]
+
+export const Project: ProjectItemType[] = [
   {
     title: 'Cs Go Case Simulator',
     dec: `Cs Go Case Opening simulator with built in invetnory and monetary system that is connected to local storage, if your money runs out you can fight gabe newell himself in game of rock papper and scissors to get prizes, i built most of this app in a day using Vite - React - TypeScript and tailwind for styling as always `,

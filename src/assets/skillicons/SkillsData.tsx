@@ -8,6 +8,7 @@ import tailwind from './tailwind.png'
 import typescript from './typescript.png'
 import vite from './vite.png'
 import git from './git.png'
+import redux from './redux.png'
 export const skillsData = {
   css,
   html,
@@ -19,4 +20,5 @@ export const skillsData = {
   typescript,
   vite,
   git,
+  redux,
 }

@@ -1,11 +1,23 @@
-import React, { FC, useState, useRef } from 'react'
+import React, { FC, useState, useRef, useReducer, Dispatch } from 'react'
 import { UsePortfolioContext } from '../../context/PortfolioContext'
 import { AiOutlineBars } from 'react-icons/ai'
 import folder from '../../assets/icons/folderclosed.png'
 import folderopen from '../../assets/icons/folderopen.png'
 import ProjectDiv from './ProjectDiv'
+import ProjectsRecurs from './ProjectsRecurs'
+import { MainProjects } from '../../DataUtils'
+import OuterProjectFolder from './OuterProjectFolder'
 type MainProps = {
   zoom: boolean
+}
+
+export type FolderState = {
+  main: boolean
+  small: boolean
+}
+
+export type FolderAction = {
+  type: string
 }
 const MainProjectContent: FC<MainProps> = ({ zoom }) => {
   const {
@@ -13,6 +25,8 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
     projectDispatch,
     projectState,
     layoutState,
+    mainProjectsData,
+    miniProjects,
   } = UsePortfolioContext()
   const [hideFolders, setHideFolders] = useState<boolean>(true)
   const style = {
@@ -49,6 +63,23 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
       })
     }
   }, [projectState.productID])
+
+  const FolderDirReducer = (state: FolderState, action: FolderAction) => {
+    switch (action.type) {
+      case 'main':
+        return { ...state, main: !state.main }
+      case 'small':
+        return { ...state, small: !state.small }
+      default:
+        return state
+    }
+  }
+
+  const [folderState, folderDispatch] = useReducer(FolderDirReducer, {
+    main: false,
+    small: false,
+  })
+
   return (
     <section className={style.mainContent}>
       <div
@@ -71,29 +102,20 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
       <div className={style.folders}>
         <h1 className={style.header}>Projects</h1>
         <div className={style.folderDiv}>
-          {projectsData.map((val: any, index: number) => {
-            return (
-              <div
-                key={index}
-                onClick={() => {
-                  projectDispatch({
-                    type: 'id',
-                    payload: val.id,
-                  }),
-                    setHideFolders(true)
-                }}
-                className={`hover:bg-gray-200 w-[100%] text-gray-400  h-[3rem] flex  folderFont items-center text-[1rem] gap-2 cursor-pointer px-4 ${
-                  projectState.productID === val.id && 'bg-gray-200  '
-                }`}
-              >
-                <img
-                  className={style.icon}
-                  src={projectState.productID === val.id ? folderopen : folder}
-                />
-                {val.title}
-              </div>
-            )
-          })}
+          <OuterProjectFolder
+            title={'Main Projects'}
+            data={mainProjectsData}
+            Dispatch={folderDispatch}
+            type={'main'}
+            state={folderState.main}
+          />
+          <OuterProjectFolder
+            title={'Side Projects'}
+            data={miniProjects}
+            Dispatch={folderDispatch}
+            type={'small'}
+            state={folderState.small}
+          />
         </div>
       </div>
       <div className={style.projectDiv}>
