@@ -20,13 +20,13 @@ import secondlayout from '../assets/pcmarket/secoendlayout.jpg'
 import simular from '../assets/pcmarket/simular.jpg'
 import singleproduct from '../assets/pcmarket/singleproduct.jpg'
 /// csgo
-import chromaopen from '../assets/csgo/chromaopen.jpg'
-import gabefight from '../assets/csgo/gabefight.jpg'
-import gabelost from '../assets/csgo/gabelost.jpg'
-import inventory from '../assets/csgo/inventory.jpg'
-import knifecase from '../assets/csgo/knifecase.jpg'
-import mainDog from '../assets/dog/main.jpg'
-import res from '../assets/dog/res.jpg'
+import chromaopen from '../assets/csgo/chromaopen.webp'
+
+import gabelost from '../assets/csgo/gabelost.webp'
+import inventory from '../assets/csgo/inventory.webp'
+import knifecase from '../assets/csgo/knifecase.webp'
+import mainDog from '../assets/dog/main.webp'
+import res from '../assets/dog/res.webp'
 import billing from '../assets/giosgym/billinggym.jpg'
 import cart from '../assets/giosgym/cart gym.jpg'
 import contacnt from '../assets/giosgym/contantgym.jpg'
@@ -57,7 +57,7 @@ export const imgdata = {
   singleproduct,
   //csgo
   chromaopen,
-  gabefight,
+
   gabelost,
   inventory,
   knifecase,
@@ -70,4 +70,5 @@ export const imgdata = {
   maingym,
   shippinggym,
   singleproductgym,
+  // quzz
 }

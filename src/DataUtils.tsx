@@ -6,7 +6,8 @@ import { SiFirebase, SiTypescript } from 'react-icons/si'
 import { TbBrandTailwind, TbBrandVite } from 'react-icons/tb'
 import { IconBaseProps } from 'react-icons'
 import { NavData } from './assets/calc/navData'
-
+import { GrNode } from 'react-icons/gr'
+import { DiMongodb } from 'react-icons/di'
 export type SkillDataType = {
   title: string
   icon: string
@@ -16,7 +17,7 @@ export type SkillDataType = {
 export type ProjectItemType = {
   title: string
   dec: string
-  link: string
+  link?: string
   git: string
   demovideo?: string
   imgs: string[]
@@ -197,7 +198,7 @@ export const Project: ProjectItemType[] = [
       imgdata.chromaopen,
       imgdata.inventory,
       imgdata.knifecase,
-      imgdata.gabefight,
+
       imgdata.gabelost,
     ],
     icons: [
@@ -209,6 +210,51 @@ export const Project: ProjectItemType[] = [
     ],
     id: 'cs-go-simulator-app',
     personal: `I developed this app as a personal challenge and a tribute to one of my favorite games, CS:GO. Although it's nothing extraordinary, the process of creating it was relatively straightforward. It only took me a day to complete, with 90% of it involving copy-pasting photo links and gun descriptions from Steam.,It was a fun side project that allowed me to challenge myself and expand my coding skills in a low-pressure environment.`,
+  },
+  {
+    title: 'Node/Img upload',
+    dec: `Simple image url web app , I used firestore as image storage,after uploading the image to firestore we get back image url with than we post it on the mongo data base with express js server api, using post method with axios on the front end , then we get the data from api and display it on the gallary `,
+
+    git: 'https://github.com/vindexTOS/img-upload',
+    demovideo: 'https://www.youtube.com/watch?v=UfV5r_8il44',
+    imgs: [
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2Fimguplader%2FphotoProject.webp?alt=media&token=c6df6544-850c-4c42-912e-9ca2906a84a6`,
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2Fimguplader%2FphotoProject.webp?alt=media&token=c6df6544-850c-4c42-912e-9ca2906a84a6`,
+    ],
+    icons: [
+      <FaReact className="text-blue-400" />,
+      <SiTypescript className="text-blue-500" />,
+      <GrNode className="text-green-500" />,
+      <DiMongodb className="text-green-600" />,
+      <SiFirebase className="text-[#FFA611]" />,
+      <TbBrandTailwind className="text-blue-500" />,
+    ],
+    id: 'img-upload',
+    personal: `my first Node Express project, which is a simple image uploader that provides you with a Firebase store link for the photo. Additionally, it has a gallery that fetches data from MongoDB. The technologies I used for this project are Firestore for storage, MongoDB for the database, Express.js for the API, React and Tailwind CSS for the front-end, and TypeScript for coding.
+    `,
+  },
+  {
+    title: 'Web-Dev Quizz',
+    dec: `The quiz app is a web application that allows users to test their knowledge on front-end development topics, specifically React, JavaScript, HTML/CSS. The app features a variety of questions of varying difficulty levels, allowing users to customize their quiz-taking experience to suit their level of knowledge.,Users can choose from different categories of questions, including React-specific questions, JavaScript-specific questions, and HTML/CSS-specific questions. Additionally, the app features different difficulty settings that allow users to select the level of challenge they want to tackle. `,
+    link: 'https://wonderful-narwhal-0b8ac3.netlify.app/',
+    git: 'https://github.com/vindexTOS/react-question-quizz',
+
+    imgs: [
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2Fquizz%2Fquizz2.webp?alt=media&token=ab9c64fc-678c-446f-af5f-6c74247c8c9f`,
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2Fquizz%2Fquizz.webp?alt=media&token=62d0941a-9f32-45d8-a63a-8422ee2e1f31`,
+    ],
+    icons: [
+      <FaReact className="text-blue-400" />,
+      <SiTypescript className="text-blue-500" />,
+
+      <TbBrandTailwind className="text-blue-500" />,
+    ],
+    id: 'quizz',
+    personal: `I created this quiz app mainly to help myself learn more about trivial questions related to front-end development topics like React, JavaScript, HTML/CSS, and more. As someone who is passionate about learning and improving my skills, I found that building an interactive quiz app was a great way to make the learning process more engaging and enjoyable.
+
+    I made sure to include a variety of customization options, such as different categories of questions and difficulty levels, to provide a tailored learning experience. I've found this app to be a valuable tool that I frequently use to gain a deeper understanding of complex topics, and the act of creating it has helped me solidify my own knowledge on the subject matter.
+    
+    Overall, this quiz app is a passion project that reflects my own desire to expand my knowledge and understanding of front-end development topics, and I hope it can be a valuable resource for others looking to do the same.`,
   },
   {
     title: 'DogGPT',
@@ -252,20 +298,32 @@ export const Project: ProjectItemType[] = [
       Despite some issues with the code, such as creating the context API in the app file instead of creating a costume hook for it, and a lot of responsive styling problems that I could have fixed right now, I chose to let it stay how it was as a reminder how much I progressed since I  created this app   , Over all it was a valuable learning experience for me.   `,
   },
   {
+    title: 'challenges and games ',
+    dec: `The collection currently includes a lottery simulator, where users can generate random numbers for a chance to win a simulated jackpot. There's also a tic tac toe game, where users can challenge their friends or the computer to a game of this classic strategy game. For Pokemon fans, there's a Pokemon API caller that allows users to search for their favorite characters and view detailed information about them. Finally, there's a simple to-do list app that helps users stay organized and on top of their tasks.`,
+    link: 'https://brilliant-sherbet-fe8d55.netlify.app/',
+    git: 'https://github.com/vindexTOS/challanges-games',
+
+    imgs: [
+      `https://firebasestorage.googleapis.com/v0/b/challanges-787f6.appspot.com/o/projects%2Fchallanges-and-games%2Ftodolist.JPG?alt=media&token=7a799312-ec4f-4195-88b8-522f85e52f75`,
+      `https://firebasestorage.googleapis.com/v0/b/challanges-787f6.appspot.com/o/projects%2Fchallanges-and-games%2Flotto.JPG?alt=media&token=8bab88c9-40a0-4782-a3a6-211baac045c9`,
+    ],
+    icons: [
+      <FaReact className="text-blue-400" />,
+      <SiTypescript className="text-blue-500" />,
+      <TbBrandVite className="text-purple-500" />,
+
+      <TbBrandTailwind className="text-blue-500" />,
+    ],
+    id: 'games',
+    personal: `  The collection currently includes a lottery simulator, where users can generate random numbers for a chance to win a simulated jackpot. There's also a tic tac toe game, where users can challenge  the computer to a game of this classic strategy game. For Pokemon fans, there's a Pokemon API caller that allows users to search for their favorite characters and view  information about them. Finally, there's a simple to-do list app .`,
+  },
+  {
     title: 'Bunch Of Calculators',
     dec: `This project features a life expectancy calculator that determines your life expectancy based on your lifestyle and health condition. Additionally, there is a one rep max calculator for weightlifting that calculates your maximum weightlifting capacity between 100% and 55%. The compound interest calculator is self-explanatory. Lastly, the project includes some basic calculators such as a tip calculator and BMI calculator.`,
     link: 'https://taupe-dieffenbachia-f6bd97.netlify.app/',
     git: 'https://github.com/vindexTOS/calculators',
 
-    imgs: [
-      NavData.emi,
-      NavData.life,
-      NavData.onerep,
-      NavData.compauned,
-      NavData.bmi,
-
-      NavData.tipCal,
-    ],
+    imgs: [NavData.emi, NavData.life],
     icons: [
       <FaReact className="text-blue-400" />,
       <SiTypescript className="text-blue-500" />,

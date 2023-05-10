@@ -156,7 +156,7 @@ const ProjectDiv: FC<ProjectDivProps> = ({ zoom, scrollRef }) => {
         )}
       </div>
       <div className={style.iconsDiv}>
-        <div className="flex gap-20 max_sm:gap-0 max_md2:gap-5">
+        <div className="flex gap-20 max_sm:gap-3 max_md2:gap-5  max_sm:text-[2.3rem]">
           {icons?.map((val: any, index: number) => (
             <p key={String(val + index)}>{val}</p>
           ))}

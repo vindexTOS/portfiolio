@@ -18,21 +18,21 @@
 }
 
 .bg-img {
-  background-image: url('./assets/background//background1.jpg');
+  background-image: url('./assets/background//background1.webp');
 
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
 }
-.bg-purple-img {
+/* .bg-purple-img {
   background-image: url('./assets/background/purpleLay.jpg');
 
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
-}
+} */
 .bg-section-purple {
   background-image: url('./assets/background/blueBg.jpg');
 
