@@ -119,12 +119,6 @@ const Contact = () => {
                     g.kutateli@gmail.com
                   </p>
                 </div>
-                <div className={style.bottomEmailDiv}>
-                  <SiGmail className="text-red-600 text-[1.3rem]" />
-                  <p className="outline-none select-text ">
-                    giorgikutateladze1998@gmail.com
-                  </p>
-                </div>
               </div>
 
               <m.button

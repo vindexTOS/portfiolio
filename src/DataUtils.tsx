@@ -2,7 +2,7 @@ import { IoLogoJavascript } from 'react-icons/io'
 import { imgdata } from './assets/imgdata'
 import { skillsData } from './assets/skillicons/SkillsData'
 import { FaReact } from 'react-icons/fa'
-import { SiFirebase, SiTypescript } from 'react-icons/si'
+import { SiFirebase, SiTypescript, SiRedux } from 'react-icons/si'
 import { TbBrandTailwind, TbBrandVite } from 'react-icons/tb'
 import { IconBaseProps } from 'react-icons'
 import { NavData } from './assets/calc/navData'
@@ -27,15 +27,13 @@ export type ProjectItemType = {
 }
 
 export const portfolioData = {
-  aboutMe: `  My full name is Giorgi Kutateladze, and
-    I am a self-taught React developer. As a passionate learner and
-    problem solver, I taught myself how to code and have been developing
-    web applications using React ever since. I have a strong
-    understanding of the React ecosystem and enjoy creating complex features for website. I have really strong grasp of basicis with allows me to learn new technology really fast. On this website, you will find examples of my
-    work, including some of the projects I have developed using React. I
-    am constantly learning and expanding my skillset, and I am excited
-    about the opportunity to collaborate with other developers and
-    businesses. `,
+  aboutMe: ` I am a MERN/TypeScript stack self-taught developer who loves to work hard and stay disciplined. I am always eager to learn and stay up-to-date with new technologies and programming techniques. For me, programming feels like second nature and I find it incredibly fulfilling to create something new from scratch.
+
+  Throughout my journey as a developer, I have been consistently working on projects and experimenting with new technologies. Learning is a never-ending process for me, and I am constantly pushing myself to try new things and expand my skills. I have never experienced self-doubt along the way because I am always excited about the possibilities of what I can create.
+  
+  As the great man once said, "the more you put in anything, the more you get out." I fully believe in this philosophy and it drives me to work harder every day. I know that any obstacles or challenges that come my way will eventually be overcome, and I am always motivated to keep going and improving.
+  
+  My motto is to always be evolving, developing, and growing. I know that the world of programming is constantly changing and evolving, and I want to stay ahead of the curve. I am excited to continue learning and building new things, and I can't wait to see where my journey as a developer takes me next. `,
   InreleventInfo: [
     {
       point: `I have a Bachelor in Agricultural Science... I am interested in permaculture, one of my life gole is to have my own food forest and permaculture garden `,
@@ -86,6 +84,24 @@ export const skills: SkillDataType = [
     bgo: `rgba(34, 133, 245,  ${bgOpacity})`,
   },
   {
+    title: `Node/Express.js`,
+    icon: skillsData.node,
+    color: `rgba(104, 160, 99 , ${bghover})`,
+    bgo: `rgba(104, 160, 99 , ${bgOpacity})`,
+  },
+  {
+    title: `MongoDb`,
+    icon: skillsData.mongo,
+    color: `rgba(60, 135, 58,  ${bghover})`,
+    bgo: `rgba(60, 135, 58,  ${bgOpacity})`,
+  },
+  {
+    title: `Firebase`,
+    icon: skillsData.firebase,
+    color: `rgba(255, 166, 17,  ${bghover})`,
+    bgo: `rgba(255, 166, 17,  ${bgOpacity})`,
+  },
+  {
     title: `Git`,
     icon: skillsData.git,
     color: `rgba(255, 165, 0,  ${bghover})`,
@@ -109,12 +125,7 @@ export const skills: SkillDataType = [
     color: `rgba(138, 48, 255,  ${bghover})`,
     bgo: `rgba(138, 48, 255,  ${bgOpacity})`,
   },
-  {
-    title: `Firebase`,
-    icon: skillsData.firebase,
-    color: `rgba(255, 166, 17,  ${bghover})`,
-    bgo: `rgba(255, 166, 17,  ${bgOpacity})`,
-  },
+
   {
     title: `Vite`,
     icon: skillsData.vite,
@@ -124,6 +135,30 @@ export const skills: SkillDataType = [
 ]
 
 export const MainProjects: ProjectItemType[] = [
+  {
+    title: 'FitHub Reddit Clone ',
+    dec: `Fithub is a fitness-oriented Reddit clone with several distinguishing features. It boasts various threads that can only be created and customized by users with admin roles. Additionally, it incorporates an upvoting system to promote valuable content. Users receive notifications when someone comments on their posts or replies to them in the comment section. Furthermore, users have the ability to modify their own profiles and create posts. The app runs on the Express.js framework for the backend, utilizes MongoDB as the database, and employs React, TypeScript, Redux for state management, and Tailwind CSS for styling on the frontend.`,
+    link: `https://fithub-forum.netlify.app`,
+    git: `https://github.com/vindexTOS/fitness-forum`,
+    demovideo: `https://www.youtube.com/watch?v=aIxgLIDCyAc`,
+    imgs: [
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2FcommentFIthub.webp?alt=media&token=0af37ed9-2487-473b-9836-bd7f29364535`,
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2Ffithubmain.webp?alt=media&token=1b5aaffa-808c-4e9a-8f1b-a8d88ddfc043`,
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2FfithubmainPage.webp?alt=media&token=d29bb5bf-5774-4c59-bc30-7630d2b12620`,
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2FinnerFithub.webp?alt=media&token=978f9f4c-d6ae-47be-85c1-ec7d1458a1d7`,
+    ],
+    icons: [
+      <FaReact className="text-blue-400" />,
+      <SiTypescript className="text-blue-500" />,
+      <GrNode className="text-green-500" />,
+      <DiMongodb className="text-green-600" />,
+      <SiFirebase className="text-[#FFA611]" />,
+      <TbBrandTailwind className="text-blue-500" />,
+      <SiRedux className="text-purple-500" />,
+    ],
+    personal: `I initially started building a simple API for learning purposes, but as I quickly grasped the concepts of Node.js and Express, I decided to expand the project into a full-stack Reddit clone. This endeavor also provided me with an opportunity to delve into Redux Toolkit, although I found it to introduce a significant amount of boilerplate code and additional typing. Personally, I still have a preference for using the Context API. Throughout the course of this project, which I completed in just two weeks while simultaneously working on another project, I noticed that it involved a lot of routine tasks and wasn't as challenging as some of my previous projects. Nonetheless, I believe it has contributed significantly to my growth as a developer since my last project.`,
+    id: 'fit-hub',
+  },
   {
     title: 'Fittness APP ',
     dec: `This app is packed with features, app helps users achieve their fitness goals in a personalized and fun way.' The app calculates users' BMI, age, and health status to create a personalized exercise plan. The app also offers progress tracking and statistical analysis, so users can see their progress over time. To keep users motivated, the app has a rewards system that rewards users for completing challenges. The app allows users to register and sign in to Firebase, and users can change their name and profile picture. With plans to include features such as user comparison statistics, this app is designed to change the way people get fit and stay motivated towards their goals.`,

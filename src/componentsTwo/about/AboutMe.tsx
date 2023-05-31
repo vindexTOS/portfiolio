@@ -81,7 +81,7 @@ const AboutMe = () => {
   const [copy, setCopy] = React.useState<string>('')
   function copyToClipboard() {
     navigator.clipboard
-      .writeText('giorgikutateladze1998@gmail.com')
+      .writeText('g.kutateli@gmail.com')
       .then(() => setCopy('Copied!'))
       .catch((error) =>
         console.error('Error copying text to clipboard:', error),
@@ -131,7 +131,7 @@ const AboutMe = () => {
               >
                 <AiOutlineCopy className="text-[2rem]" />
                 <div className="flex flex-col text-[12px]  ">
-                  <p>giorgikutateladze1998@gmail.com </p>
+                  <p> g.kutateli@gmail.com </p>
 
                   <m.span
                     initial={{ opacity: 0 }}
@@ -180,7 +180,7 @@ const AboutMe = () => {
                     : ''
                 } `}
               >
-                I am a front-end web developer
+                I am a web developer
               </p>
             </div>
             <p
@@ -215,17 +215,14 @@ const AboutMe = () => {
                     : ''
                 }`}
               >
-                My ultimate goal is to become a full stack web developer, which
-                is why I recently started learning back end development using
-                Node.js. I'm passionate about enhancing my skills and expertise
-                in this area, and I'm committed to putting in the time and
-                effort to achieve my goals. Looking ahead, I'm about to learn
-                React Native and leverage that knowledge to create a big scale
-                fitness app, i have already made beta version of it on React.js
-                . I'm driven by a strong desire to keep learning and growing,
-                and I'm confident that I have what it takes to succeed as a
-                developer. I'm eager to continue my journey and see where it
-                takes me!
+                My current long-term goal is to develop a fitness app using
+                React Native.I have already made beta version of it with you can
+                see in my{' '}
+                <Link className="text-blue-400" to="/projects">
+                  projects
+                </Link>{' '}
+                page, In the short term, I am focused on improving my back-end
+                development skills.
               </p>
             </div>
             <div className={style.InreleventDiv}>

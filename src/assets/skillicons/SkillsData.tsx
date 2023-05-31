@@ -9,6 +9,8 @@ import typescript from './typescript.png'
 import vite from './vite.png'
 import git from './git.png'
 import redux from './redux.png'
+import node from './node.png.png'
+import mongo from './mongo.png.png'
 export const skillsData = {
   css,
   html,
@@ -21,4 +23,6 @@ export const skillsData = {
   vite,
   git,
   redux,
+  node,
+  mongo,
 }

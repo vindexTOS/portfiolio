@@ -20,21 +20,22 @@ const OuterProjectFolder: FC<OuterFolderProps> = ({
   title,
 }) => {
   return (
-    <div>
+    <div className="    ">
       <div
-        className="flex items-center gap-5 cursor-pointer"
+        className="flex items-center gap-5 cursor-pointer  justify-around w-[12rem]"
         onClick={() => Dispatch({ type: type })}
       >
-        {' '}
         <img className={`w-[2rem]`} src={state ? folderopen : folder} />{' '}
-        <h1 className="text-gray-500 text-[1.1rem]">{title}</h1>
+        <h1 className="text-gray-500 text-[1.1rem] mr-3 ">
+          {title} <span className="text-green-500">{data.length}</span>
+        </h1>
       </div>
       {state && (
-        <>
+        <div className="max-h-[200px] overflow-y-scroll">
           {data?.map((val: any, index: number) => (
             <ProjectsRecurs key={val.id} data={val} index={index} />
           ))}
-        </>
+        </div>
       )}
     </div>
   )
