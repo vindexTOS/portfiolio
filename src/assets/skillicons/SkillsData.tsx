@@ -25,4 +25,5 @@ export const skillsData = {
   redux,
   node,
   mongo,
+  reactQuery: `https://seeklogo.com/images/R/react-query-logo-1340EA4CE9-seeklogo.com.png`,
 }

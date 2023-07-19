@@ -121,18 +121,22 @@ const ProjectDiv: FC<ProjectDivProps> = ({ zoom, scrollRef }) => {
       <h1 className={style.header}>{title}</h1>
 
       <div className={style.imgDiv}>
-        <div className={style.btnDiv} ref={scrollRef}>
-          <IoIosArrowDropleft
-            onClick={() => ArrowMovment('left')}
-            className={style.btn}
-          />
-          <IoIosArrowDropright
-            onClick={() => ArrowMovment('right')}
-            className={style.btn}
-          />
-        </div>
-
-        <img className={style.img} src={imgs && imgs[imgIndex]} />
+        {imgs && imgs.length > 1 && (
+          <div className={style.btnDiv} ref={scrollRef}>
+            <IoIosArrowDropleft
+              onClick={() => ArrowMovment('left')}
+              className={style.btn}
+            />
+            <IoIosArrowDropright
+              onClick={() => ArrowMovment('right')}
+              className={style.btn}
+            />
+          </div>
+        )}
+        <img
+          className={style.img}
+          src={imgs && imgs.length === 1 ? imgs[0] : imgs && imgs[imgIndex]}
+        />
       </div>
       <div className={style.linkDiV}>
         <InnerLinks

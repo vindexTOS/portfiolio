@@ -2,7 +2,13 @@ import { IoLogoJavascript } from 'react-icons/io'
 import { imgdata } from './assets/imgdata'
 import { skillsData } from './assets/skillicons/SkillsData'
 import { FaReact } from 'react-icons/fa'
-import { SiFirebase, SiTypescript, SiRedux } from 'react-icons/si'
+import {
+  SiFirebase,
+  SiTypescript,
+  SiRedux,
+  SiDotnet,
+  SiCsharp,
+} from 'react-icons/si'
 import { TbBrandTailwind, TbBrandVite } from 'react-icons/tb'
 import { IconBaseProps } from 'react-icons'
 import { NavData } from './assets/calc/navData'
@@ -78,6 +84,12 @@ export const skills: SkillDataType = [
     bgo: `rgba(118, 74, 188,  ${bgOpacity})`,
   },
   {
+    title: `React Query`,
+    icon: skillsData.reactQuery,
+    color: `rgba(255, 165, 0,  ${bghover})`,
+    bgo: `rgba(118, 74, 188,  ${bgOpacity})`,
+  },
+  {
     title: `TailwindCss`,
     icon: skillsData.tailwind,
     color: `rgba(34, 133, 245,  ${bghover})`,
@@ -136,16 +148,48 @@ export const skills: SkillDataType = [
 
 export const MainProjects: ProjectItemType[] = [
   {
+    title: 'Movie Rating',
+    dec: ` This is a movie rating application where users can register as critics and rate movies using a 5-star review system. The application also provides information about actors and movies. The database is designed in such a way that when a movie is added, the corresponding actors are automatically retrieved from the database. - User Registration: Users can register to become critics and gain access to rate movies.
+  - Movie Rating: Registered critics can rate movies using a 5-star review system.
+  - Actors and Movies: The application provides information about actors and movies.
+  - Automatic Actor Addition: When a movie is added, the corresponding actors are automatically retrieved from the database.
+  - Backend: Built using C# and .NET for server-side functionality. `,
+    link: `https://64a7f24605790660b1adec41--movie-clubge.netlify.app/`,
+    git: `https://github.com/vindexTOS/movie-net-react`,
+    demovideo: ``,
+    imgs: [
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/sigma%20male%20movie.jpg?alt=media&token=c36c6a44-c8aa-489c-813d-83e1ded0123f`,
+    ],
+    icons: [
+      <FaReact className="text-blue-400" />,
+      <SiTypescript className="text-blue-500" />,
+      <SiCsharp className="text-green-500" />,
+      <SiDotnet className="text-green-600" />,
+      <SiFirebase className="text-[#FFA611]" />,
+      <TbBrandTailwind className="text-blue-500" />,
+      <SiRedux className="text-purple-500" />,
+    ],
+    personal: `Me and Akaki Ujarashvili, combined our passion for movies and technology to create an immersive movie club experience. Our app utilizes C# .NET for the back end and TypeScript React for the front end, delivering a seamless and user-friendly platform.
+  🌟 Key Features:
+  ✅ User Registration: Become a member of our movie club by registering and unlocking exclusive features.
+  ✅ Movie Ratings: Rate your favorite movies with our 5-star review system and share your opinions with fellow movie enthusiasts.
+  ✅ Comprehensive Movie Database: Explore an extensive collection of movies, complete with detailed information and captivating visuals.
+  ✅ Dynamic Actor Addition: Our smart database automatically adds actors when a movie is added, enriching the browsing experience.
+  🤝 Collaboration Journey:
+  Throughout this project, my friend and I embarked on an incredible teamwork experience. We faced challenges head-on and leveraged our skills in C# .NET and TypeScript React to bring this application to life. Collaborating on every aspect, from brainstorming ideas to coding and testing, has been a valuable learning experience for both of us.
+  💡 Why We Built This App:
+  Our primary motivation was to develop a project that combines our love for movies and our desire to enhance our teamwork and git skills.`,
+    id: 'movie-app',
+  },
+
+  {
     title: 'FitHub Reddit Clone ',
     dec: `Fithub is a fitness-oriented Reddit clone with several distinguishing features. It boasts various threads that can only be created and customized by users with admin roles. Additionally, it incorporates an upvoting system to promote valuable content. Users receive notifications when someone comments on their posts or replies to them in the comment section. Furthermore, users have the ability to modify their own profiles and create posts. The app runs on the Express.js framework for the backend, utilizes MongoDB as the database, and employs React, TypeScript, Redux for state management, and Tailwind CSS for styling on the frontend.`,
     link: `https://fithub-forum.netlify.app`,
     git: `https://github.com/vindexTOS/fitness-forum`,
     demovideo: `https://www.youtube.com/watch?v=aIxgLIDCyAc`,
     imgs: [
-      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2FcommentFIthub.webp?alt=media&token=0af37ed9-2487-473b-9836-bd7f29364535`,
-      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2Ffithubmain.webp?alt=media&token=1b5aaffa-808c-4e9a-8f1b-a8d88ddfc043`,
-      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2FfithubmainPage.webp?alt=media&token=d29bb5bf-5774-4c59-bc30-7630d2b12620`,
-      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/portfoliophotos%2FinnerFithub.webp?alt=media&token=978f9f4c-d6ae-47be-85c1-ec7d1458a1d7`,
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/Reddit%20Clone.jpg?alt=media&token=8783248c-25f1-45ed-9aff-9d33790dd4fa`,
     ],
     icons: [
       <FaReact className="text-blue-400" />,
@@ -166,15 +210,7 @@ export const MainProjects: ProjectItemType[] = [
     git: `https://github.com/vindexTOS/ranger-app`,
     demovideo: `https://www.youtube.com/watch?v=vKx7S7jNV8w`,
     imgs: [
-      imgdata.main,
-      imgdata.awards,
-      imgdata.bmi,
-      imgdata.end,
-      imgdata.history,
-      imgdata.max,
-      imgdata.statistics,
-      imgdata.user,
-      imgdata.userphoto,
+      `https://firebasestorage.googleapis.com/v0/b/pcmarket-8f5e8.appspot.com/o/Fitness%20App%20Demo%20Photo%20.jpg?alt=media&token=d25b6c9f-d6c2-49af-ab71-182371cbbaab`,
     ],
     icons: [
       <FaReact className="text-blue-400" />,
@@ -199,17 +235,7 @@ export const MainProjects: ProjectItemType[] = [
     git: `https://github.com/vindexTOS/PCmarket`,
     demovideo: `https://www.youtube.com/watch?v=X0PlNZ0djRA&feature=youtu.be`,
     imgs: [
-      imgdata.mainPC,
-      imgdata.product,
-      imgdata.productupload,
-      imgdata.filter,
-      imgdata.reviews,
-      imgdata.userprofile,
-      imgdata.messages,
-      imgdata.messagesMain,
-      imgdata.secondlayout,
-      imgdata.simular,
-      imgdata.singleproduct,
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/PC%20market%20background.jpg?alt=media&token=c8f20072-42f8-4cf1-959a-31e400ec1a79`,
     ],
     icons: [
       <FaReact className="text-blue-400" />,
