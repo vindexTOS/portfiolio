@@ -18,6 +18,7 @@ import {
   ProjectItemType,
   Project,
   MainProjects,
+  ChallangesProjects,
 } from '../DataUtils'
 import { addDoc, collection, onSnapshot, query } from 'firebase/firestore'
 type Action = {
@@ -53,6 +54,7 @@ type Cell = {
   projectsData: ProjectItemType[]
   mainProjectsData: ProjectItemType[]
   miniProjects: ProjectItemType[]
+  workChallanges: ProjectItemType[]
   projectRef: React.MutableRefObject<null>
   aboutRef: React.MutableRefObject<null>
   navRef: (link: string) => void
@@ -95,6 +97,9 @@ export const PortfolioContextProvider = ({
   const [mainProjectsData, setMainProjectsData] = useState<ProjectItemType[]>(
     MainProjects,
   )
+  const [workChallanges, setWorkChallanges] = useState<ProjectItemType[]>(
+    ChallangesProjects,
+  )
   const [miniProjects, setMiniProjects] = useState<ProjectItemType[]>(Project)
   useEffect(() => {
     const q = query(collection(db, 'portfolio-projects'))
@@ -103,7 +108,12 @@ export const PortfolioContextProvider = ({
       querrySnapshot.forEach((doc: any) => {
         data.push({ ...doc.data(), id: doc.id })
       })
-      setProjectsData([...projectsData, ...mainProjectsData, ...data])
+      setProjectsData([
+        ...projectsData,
+        ...mainProjectsData,
+        ...workChallanges,
+        ...data,
+      ])
     })
     // console.log(projectsData)
     return () => unsub()
@@ -163,7 +173,7 @@ export const PortfolioContextProvider = ({
     }
   }
   const [projectState, projectDispatch] = useReducer(projectReducer, {
-    productID: 'ranger-app',
+    productID: 'optio-banner-manager',
   })
 
   // different layout logic
@@ -300,6 +310,7 @@ export const PortfolioContextProvider = ({
       value={{
         projectsData,
         mainProjectsData,
+        workChallanges,
         miniProjects,
         projectRef,
         aboutRef,

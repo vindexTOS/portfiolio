@@ -1,13 +1,14 @@
 import { IoLogoJavascript } from 'react-icons/io'
 import { imgdata } from './assets/imgdata'
 import { skillsData } from './assets/skillicons/SkillsData'
-import { FaReact } from 'react-icons/fa'
+import { FaAngular, FaReact } from 'react-icons/fa'
 import {
   SiFirebase,
   SiTypescript,
   SiRedux,
   SiDotnet,
   SiCsharp,
+  SiExpress,
 } from 'react-icons/si'
 import { TbBrandTailwind, TbBrandVite } from 'react-icons/tb'
 import { IconBaseProps } from 'react-icons'
@@ -78,28 +79,53 @@ export const skills: SkillDataType = [
     bgo: `rgba(97, 219, 251,  ${bgOpacity})`,
   },
   {
+    title: `Next.js`,
+    icon: skillsData.nextJs,
+    color: `rgba(97, 219, 251,  ${bghover})`,
+    bgo: `rgba(97, 219, 251,  ${bgOpacity})`,
+  },
+  {
+    title: `React Native`,
+    icon: skillsData.reactnative,
+    color: `rgba(97, 219, 251,  ${bghover})`,
+    bgo: `rgba(97, 219, 251,  ${bgOpacity})`,
+  },
+  {
     title: `Redux`,
     icon: skillsData.redux,
     color: `rgba(118, 74, 188,  ${bghover})`,
     bgo: `rgba(118, 74, 188,  ${bgOpacity})`,
   },
   {
-    title: `React Query`,
-    icon: skillsData.reactQuery,
-    color: `rgba(255, 165, 0,  ${bghover})`,
-    bgo: `rgba(118, 74, 188,  ${bgOpacity})`,
+    title: `Angular`,
+    icon: skillsData.angular,
+    color: `rgba(255, 0, 0,  ${bghover})`,
+    bgo: `rgba(255, 0, 0,  ${bgOpacity})`,
   },
   {
-    title: `TailwindCss`,
-    icon: skillsData.tailwind,
-    color: `rgba(34, 133, 245,  ${bghover})`,
-    bgo: `rgba(34, 133, 245,  ${bgOpacity})`,
+    title: `Ngrx`,
+    icon: skillsData.ngrx,
+    color: `rgba(135, 0, 0,  ${bghover})`,
+    bgo: `rgba(135, 0, 0,  ${bgOpacity})`,
   },
+
   {
     title: `Node/Express.js`,
     icon: skillsData.node,
     color: `rgba(104, 160, 99 , ${bghover})`,
     bgo: `rgba(104, 160, 99 , ${bgOpacity})`,
+  },
+  {
+    title: `nestJs`,
+    icon: skillsData.nestJs,
+    color: `rgba(255, 0, 0  , ${bghover})`,
+    bgo: `rgba(234, 160, 99 , ${bgOpacity})`,
+  },
+  {
+    title: `MySql`,
+    icon: skillsData.mySql,
+    color: `rgba(106, 90, 205 , ${bghover})`,
+    bgo: `rgba(106, 90, 205 , ${bgOpacity})`,
   },
   {
     title: `MongoDb`,
@@ -120,6 +146,18 @@ export const skills: SkillDataType = [
     bgo: `rgba(255, 165, 0,  ${bgOpacity})`,
   },
   {
+    title: `React Query`,
+    icon: skillsData.reactQuery,
+    color: `rgba(255, 165, 0,  ${bghover})`,
+    bgo: `rgba(118, 74, 188,  ${bgOpacity})`,
+  },
+  {
+    title: `TailwindCss`,
+    icon: skillsData.tailwind,
+    color: `rgba(34, 133, 245,  ${bghover})`,
+    bgo: `rgba(34, 133, 245,  ${bgOpacity})`,
+  },
+  {
     title: `HTML`,
     icon: skillsData.html,
     color: `rgba(255, 165, 0,  ${bghover})`,
@@ -137,12 +175,66 @@ export const skills: SkillDataType = [
     color: `rgba(138, 48, 255,  ${bghover})`,
     bgo: `rgba(138, 48, 255,  ${bgOpacity})`,
   },
+]
 
+export const ChallangesProjects: ProjectItemType[] = [
   {
-    title: `Vite`,
-    icon: skillsData.vite,
-    color: `rgba(144, 17, 255,  ${bghover})`,
-    bgo: `rgba(144, 17, 255,  ${bgOpacity})`,
+    title: 'Optio Banner Management System',
+    dec: ` Angular: This project was implemented using Angular, marking my first venture into this front-end framework.
+    Ngrx: For state management, I utilized Ngrx to effectively manage the application's state.
+    Angular Material: I employed Angular Material for UI components, making the user interface visually appealing and user-friendly. `,
+    link: ``,
+    git: `https://github.com/vindexTOS/banner_manager_angular`,
+    demovideo: `https://www.youtube.com/watch?v=_yWUd1k1Ef4`,
+    imgs: [
+      `https://firebasestorage.googleapis.com/v0/b/img-upload-7d368.appspot.com/o/banner%20gg.JPG?alt=media&token=4946f51b-2efa-4eaf-920e-7d320dc64726`,
+    ],
+    icons: [
+      <FaAngular className="text-red-500" />,
+      <SiTypescript className="text-blue-500" />,
+      <SiRedux className="text-red-500" />,
+    ],
+    personal: `This project was my first experience with Angular, and it involved the development of a banner management system for the banking sector and related industries. The system was designed to streamline communication and marketing between banks and their clients through mobile and internet banking platforms.Learning the intricacies of Angular's coding patterns was a new and exciting journey for me. Fortunately, my prior knowledge of technologies like Nest.js and PHP's Blade template system provided me with a solid foundation, making it easier to grasp Angular's structure and concepts quickly.
+
+    In particular, my familiarity with the Redux pattern, which Ngrx is based on, proved to be a valuable asset. It allowed me to navigate the state management in Angular with ease, further accelerating my learning curve.
+    
+    This amalgamation of past experiences and new learning opportunities not only expedited my adaptation to Angular but also allowed me to contribute effectively to the project, leveraging a well-rounded skill set.`,
+    id: 'optio-banner-manager',
+  },
+  {
+    title: 'Chingu Voyag',
+    dec: `• I was a participant in Chingu’s Voyage 46, where we started working on Upwork clone.
+    • I developed the entire back end using TypeScript and Express, incorporating live chat using Socket.io, etc.
+    • Additionally, I had to implement all the functionalities on the front end, such as API calls, etc.
+    • Overall, I gained a lot of experience using GitHub and Git and feel confident using them in a working
+    environment.
+    • I had to take on a leadership role since I was the most experienced member in the group. This meant
+    dealing with hosting and issues when it came to Git conflicts.`,
+    link: `https://devconnectchingu.netlify.app/`,
+    git: `https://github.com/vindexTOS/v45-tier3-team-34`,
+    demovideo: ``,
+    imgs: [
+      `https://raw.githubusercontent.com/vindexTOS/v45-tier3-team-34/main/client/public/assets/img/homepage.png`,
+    ],
+    icons: [
+      <FaReact className="text-blue-400" />,
+      <SiTypescript className="text-blue-500" />,
+
+      <SiFirebase className="text-[#FFA611]" />,
+      <TbBrandTailwind className="text-blue-500" />,
+      <SiExpress className="text-green-500" />,
+      <DiMongodb className="text-green-500" />,
+    ],
+    personal: `Chingu is a platform for beginner developers to learn how to work in a real working environment.
+    I was a participant in Chingu’s Voyage 46, where a few other developers and I chose to work on an
+    Upwork clone project. Right away, half of our team flaked, so I was left alone on the back-end side. I
+    developed the entire back end using TypeScript and Express, incorporating live chat using Socket.io,
+    application and project posting, and many more features. Additionally, I had to implement all the
+    functionalities on the front end, such as API calls, etc. Overall, I gained a lot of experience using
+    GitHub and Git and feel confident using them in a working environment. Furthermore, I had to
+    take on a leadership role since I was the most experienced member in the group. This meant dealing
+    with hosting and issues when it came to Git conflicts`,
+    id: 'chingu',
   },
 ]
 

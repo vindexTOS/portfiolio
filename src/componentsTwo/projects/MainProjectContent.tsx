@@ -14,6 +14,7 @@ type MainProps = {
 export type FolderState = {
   main: boolean
   small: boolean
+  work: boolean
 }
 
 export type FolderAction = {
@@ -27,6 +28,7 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
     layoutState,
     mainProjectsData,
     miniProjects,
+    workChallanges,
   } = UsePortfolioContext()
   const [hideFolders, setHideFolders] = useState<boolean>(true)
   const style = {
@@ -70,6 +72,8 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
         return { ...state, main: !state.main }
       case 'small':
         return { ...state, small: !state.small }
+      case 'work':
+        return { ...state, work: !state.work }
       default:
         return state
     }
@@ -78,6 +82,7 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
   const [folderState, folderDispatch] = useReducer(FolderDirReducer, {
     main: false,
     small: false,
+    work: false,
   })
 
   return (
@@ -102,6 +107,14 @@ const MainProjectContent: FC<MainProps> = ({ zoom }) => {
       <div className={style.folders}>
         <h1 className={style.header}>Projects</h1>
         <div className={style.folderDiv}>
+          <OuterProjectFolder
+            title={'Work Challang'}
+            data={workChallanges}
+            Dispatch={folderDispatch}
+            type={'work'}
+            state={folderState.work}
+          />
+          {/* <button onClick={() => console.log(mainProjectsData)}>ON</button> */}
           <OuterProjectFolder
             title={'Main Projects'}
             data={mainProjectsData}
